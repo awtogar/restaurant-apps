@@ -1,48 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap');
-:root{
+
+:root {
     --color_1: #ffffff;
     --color_2: #f5f3ef;
-    --color_3: #eece89;
+    --color_3: #ffd992;
     --color_4: #ffbdb7;
     --color_5: #d2d4fe;
     --color_6: #191b20;
-  }
+}
 
-html{
+html {
   font-size: 16px;
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Familjen Grotesk", sans-serif;
 }
 
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  padding: 12px 12px;
 }
-header .logo{
+
+header .logo {
   width: 36px;
   height: auto;
 }
-header .quick__button{
-  padding: 6px 12px;
+
+header .header_button {
+  padding:12px 6px;
   background-color: var(--color_3);
-  border: solid var(--color_6) 3px;
+  border: 2px solid var(--color_6) ;
   border-radius: 8px;
 }
-.nav-container {
+header .header_button:hover{
+  padding:12px 6px;
+  background-color: var(--color_5);
+  border: 2px solid var(--color_6) ;
+  border-radius: 8px;
+  transition: background-color 1s;
+}
+
+.nav_container {
   position: fixed;
   top: 12px;         
   left: 50%;   
   transform: translateX(-50%);  
   display: flex; 
 }
-.nav-container-links{
+
+.nav_container-links {
   display: flex;
   list-style: none;
   background-color: var(--color_5);
@@ -50,50 +62,63 @@ header .quick__button{
   border-radius: 12px;
   gap: 12px;
 }
-.nav-container-links li{
+
+.nav_container-links li {
   padding: 6px 8px;
-  border-radius: 8px;;
+  border-radius: 8px;
 }
-.nav-container-links li:hover{
+
+.nav_container-links li:hover {
   background-color: var(--color_3);
-  transition: background-color 2s, box-shadow 3s;
+  transition: background-color 1s, box-shadow 1s;
   box-shadow: 3px -2px 38px 34px rgba(238,206,137,0.75) inset;
   -webkit-box-shadow: 3px -2px 38px 34px rgba(238,206,137,0.75) inset;
   -moz-box-shadow: 3px -2px 38px 34px rgba(238,206,137,0.75) inset;
-
 }
-.nav-container-links li a{
+
+.nav_container-links li a {
   text-decoration: none;
   color: var(--color_6);
   margin: 0px 6px;
 }
 
-main{
+main {
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  grid-template-rows: repeat(4,1fr);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6,1fr);
 }
-.jumbotron {
+
+.hero {
   grid-row-start: 1;
   grid-row-end: 2;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  padding: 12px;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  /* padding: 12px; */
 }
-.jumbotron img{
-  width: 1000px;
+
+.hero__image {
+  width: 100%;
   height: auto;
   border-radius: 16px;
 }
-.main-heading{
-  grid-column-start: 2;
-  grid-column-end: 3;
+
+.main_heading-1 {
+  grid-column-start: 3;
+  grid-column-end: 11;
+  text-align: center;
+  font-size: 2.5rem;
 }
-.product{
+
+.product {
   grid-row-start: 3;
   grid-row-end: 4;
   grid-column-start: 2;
   grid-column-end: 3;
-  text-align: center;
-  background-color: #191b20;
+  background-color: var(--color_3);
+}
+
+.product_container {
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+
 }
