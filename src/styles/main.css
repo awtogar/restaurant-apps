@@ -23,18 +23,77 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 12px;
+  padding: 12px;
 }
-
 header .logo{
-  width: 32px;
+  width: 36px;
   height: auto;
 }
-header .nav-container-links{
+header .quick__button{
+  padding: 6px 12px;
+  background-color: var(--color_3);
+  border: solid var(--color_6) 3px;
+  border-radius: 8px;
+}
+.nav-container {
+  position: fixed;
+  top: 12px;         
+  left: 50%;   
+  transform: translateX(-50%);  
+  display: flex; 
+}
+.nav-container-links{
   display: flex;
   list-style: none;
+  background-color: var(--color_5);
+  padding: 6px 14px;
+  border-radius: 12px;
+  gap: 12px;
 }
-header .nav-container-links li a{
+.nav-container-links li{
+  padding: 6px 8px;
+  border-radius: 8px;;
+}
+.nav-container-links li:hover{
+  background-color: var(--color_3);
+  transition: background-color 2s, box-shadow 3s;
+  box-shadow: 3px -2px 38px 34px rgba(238,206,137,0.75) inset;
+  -webkit-box-shadow: 3px -2px 38px 34px rgba(238,206,137,0.75) inset;
+  -moz-box-shadow: 3px -2px 38px 34px rgba(238,206,137,0.75) inset;
+
+}
+.nav-container-links li a{
   text-decoration: none;
-  padding: 0px 6px;
+  color: var(--color_6);
+  margin: 0px 6px;
+}
+
+main{
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-template-rows: repeat(4,1fr);
+}
+.jumbotron {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  padding: 12px;
+}
+.jumbotron img{
+  width: 1000px;
+  height: auto;
+  border-radius: 16px;
+}
+.main-heading{
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.product{
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  text-align: center;
+  background-color: #191b20;
 }
