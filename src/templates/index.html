@@ -4,57 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happs - Restaurant</title>
-  <link rel="stylesheet" href="../styles/main.css" >
+  <title>Shapps - food & culinary</title>
+  <!-- REMIX ICON & FONT AWEESOME-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <svg class="logo" alt="Happs Restaurant logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 608 608"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M304,0C136.11,0,0,136.11,0,304S136.11,608,304,608,608,471.89,608,304,471.89,0,304,0Zm82.14,437.49q-47.36,29.24-72.05,29.24-32.54,0-32.53-18.12,0-13.59,18.94-23.88,17.29-7.83,35.62-16.27t18.32-19.14q0-11.52-17.29-11.53-24.3,0-70.62,19.35t-69,19.35q-26.76,0-44.46-17.91T135.39,353.5A88.57,88.57,0,0,1,137,335.38q11.11-53.94,45.7-105,53.12-78.22,122.7-94.29a34,34,0,0,1,7.41-.83q11.11,0,18.12,10.5a39.78,39.78,0,0,1,7,22.44A28.27,28.27,0,0,1,333.44,183q-8.25,13.58-36.23,16.46-30.88,2.48-44.06,15.24-16.47,15.64-16.47,24.7,0,24.3,20.59,24.3,7.41,0,30.05-11.53,32.12-16.47,44.06-21.41,28-11.52,49.41-11.53,37.88,0,58.88,29.23,18.93,26,18.94,65.47Q458.61,392.61,386.14,437.49Z"/></g></g></svg>>
-    <div id="button-open">
-      <i class="ri-menu-4-line"></i>
-    </div>
-    <nav id="drawer">
-      <div id="button-close">
-        <i class="ri-close-fill"></i>
-      </div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Favorite</a></li>
-        <li><a href="#">About</a></li>
-    </nav>
-  </header>
+  <a href="#item-list" class="skipToContent">Skip to Content</a>
+
+  <!-- NAVIGATION -->
+    <header>
+      <nav class="nav" id="nav" role="navigation">
+        <svg class="logo" alt="Happs Restaurant logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 608 608"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M304,0C136.11,0,0,136.11,0,304S136.11,608,304,608,608,471.89,608,304,471.89,0,304,0Zm82.14,437.49q-47.36,29.24-72.05,29.24-32.54,0-32.53-18.12,0-13.59,18.94-23.88,17.29-7.83,35.62-16.27t18.32-19.14q0-11.52-17.29-11.53-24.3,0-70.62,19.35t-69,19.35q-26.76,0-44.46-17.91T135.39,353.5A88.57,88.57,0,0,1,137,335.38q11.11-53.94,45.7-105,53.12-78.22,122.7-94.29a34,34,0,0,1,7.41-.83q11.11,0,18.12,10.5a39.78,39.78,0,0,1,7,22.44A28.27,28.27,0,0,1,333.44,183q-8.25,13.58-36.23,16.46-30.88,2.48-44.06,15.24-16.47,15.64-16.47,24.7,0,24.3,20.59,24.3,7.41,0,30.05-11.53,32.12-16.47,44.06-21.41,28-11.52,49.41-11.53,37.88,0,58.88,29.23,18.93,26,18.94,65.47Q458.61,392.61,386.14,437.49Z"/></g></g></svg>
+        <button id="nav-menu" class="nav-menu" aria-label="navigation button menu">
+          <i class="ri-menu-4-line"></i>
+        </button>
+        <div class="nav-links" aria-label="navigation link">
+          <a href="#home">Home</a>
+          <a href="#favorite">Favorite</a>
+          <a href="#about">About Us</a>
+        </div>
+      </nav>
+    </header>
+
   <main>
-    <section class="hero-section" aria-label="hero section">
-      <img src="../public/images/heros/hero-image_4.jpg" class="hero__image" alt="Footage Menus of Hups Restaurant">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home" aria-labelledby="home section of happs - restaurant">
+      <figure>
+        <h1>SHapps Culinary</h1>
+        <p>for the ones who find happines in culinary!</p>
+        <a class="cta-button" href="#restaurantList"> Find yours!</a>
+      </figure>
     </section>
-    <h1 class="main-heading">Discover Your Taste!</h1>
-    <section class="restaurant">
-      <div class="restaurant-list" id="RestaurantList">
-        <!-- <article class="restaurant-item">
-          <div class="item-thumbnail">
-            <p class="city">Bandung</p>
-            <img class="restaurant-images" src="/src/public/images/heros/hero-image_2.jpg"
-              alt="footage of restaurant at ${restaurant.name}]">
-          </div>
+
+    <!-- MAIN SECTION -->
+    <section class="restaurant-section" id="restaurantSection">
+      <div class="restaurant-list" id="restaurantList">
+        <!-- <article class="card-item" ${restaurant.id}>
+          <img class="item-cover" src="${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}]">
           <div class="item-header">
-            <h2 class="restaurant-name">Duckcuk</h2>
-            <div class="rating">
+            <p class="header-city">${restaurant.city}</p>
+            <div class="header-rating">
               <i class="ri-star-fill"></i>
-              <p class="rating-value">3.9</p>
+              <p class="rating-number">${restaurant.rating}</p>
             </div>
           </div>
-          <p class="item-description">Lorem ipsum dolor sit! nobis consectetur hic, quae a, distinctio ipsum.</p>
+          <h2 class="item-name">${restaurant.name}</h2>
+          <p class="item-description">${restaurant.description}</p>
         </article> -->
       </div>
     </section>
   </main>
+  <!-- FOOTER -->
   <footer>
-    allright reserved
   </footer>
+
 </body>
-
-<script></script>
-
 </html>

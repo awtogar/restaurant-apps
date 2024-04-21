@@ -7,37 +7,36 @@ import myData from '../public/data/DATA.json';
 
 const restaurantItem = (data) => {
     data.restaurants.forEach((restaurant) => {
-        const restaurantList = document.querySelector('.restaurant-list');
+        const restaurantList = document.getElementById('restaurantList');
         restaurantList.innerHTML += `
-
-
-        <article class="restaurant-item">
-          <div class="item-thumbnail">
-            <p class="city">${restaurant.city}</p>
-            <img class="restaurant-images" src="${restaurant.pictureId}"
-              alt="footage of restaurant at ${restaurant.name}]">
-          </div>
+        <article class="card-item" ${restaurant.id}>
+          <img class="item-cover" src="${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}]">
           <div class="item-header">
-            <h2 class="restaurant-name">${restaurant.name}</h2>
-            <div class="rating">
+            <p class="header-city">${restaurant.city}</p>
+            <div class="header-rating">
               <i class="ri-star-fill"></i>
-              <p class="rating-value">${restaurant.rating}</p>
+              <p class="rating-number">${restaurant.rating}</p>
             </div>
           </div>
+          <h2 class="item-name">${restaurant.name}</h2>
           <p class="item-description">${restaurant.description}</p>
-        </article>
         `;
     });
 }
+restaurantItem(myData);
 
-restaurantItem(myData); // Memanggil fungsi dengan data yang diimpor\
+const navigationMenu = document.getElementById('nav-menu');
+const overFlow = document.body;
+navigationMenu.addEventListener('click', function () {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+  // ide oveflow belakang akan disable saat active
+  // overFlow.style.overflow='hidden';
+});
 
-
-document.getElementById('hamburger').addEventListener('click', function () {
-    var drawer = document.getElementById('drawer');
-    if (drawer.style.display === 'block') {
-        drawer.style.display = 'none';
-    } else {
-        drawer.style.display = 'block';
-    }
+//Tutup sidebar ketika link di-klik
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('active');
+  });
 });
