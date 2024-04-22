@@ -35,12 +35,12 @@ html {
   padding: 12px 12px;
   width: 100%;
 }
-.nav .logo{
-  height: 32px;
-  width: auto;
+.logo{
+  max-height: 32px;
+  max-width: 32px; 
   fill: var(--color_1);
 }
-.nav .logo:hover{
+.logo:hover{
   transition: fill 300ms ease-in-out;
   fill: var(--color_2);
 }
@@ -63,6 +63,9 @@ html {
   color: var(--color_2);
   transition: color 300ms ease-in-out;
 }
+.nav button:active i, .nav-links ul li a:active {
+  opacity: 0.7;
+}
 
 
 .nav-menu {
@@ -72,28 +75,35 @@ html {
   z-index: 1001; 
 }
 
-.nav-links {
-  /* display none buat nav ilang saat default */
-  display: none; 
+.nav-links{
   position: fixed;
   width: 75%;
   height: 100%;
   top: 0;
-  right: 0;
-  background: var(--color_6);
+  /* umpetin keluar layar */
+  right: -100%;
+  background: var(--color_1);
   box-shadow: 2px 0 5px rgba(0,0,0,0.5);
   z-index: 1000;
+  transition: right 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* menu ketika class 'aktive' */
 .nav-links.active {
-  display: block;
+  right: 0;
+  background: var(--color_6);
+  opacity: 1;
+  visibility: visible;
+  transition: right 1.5s ease, opacity 1.5s ease, visibility 0s linear 0s;
 }
 .nav-links.active ul {
   display: flex;
   flex-direction: column;
   list-style: none;
-  background-color: var(--color_6);
+  /* layer 2 */
+  background: var(--color_6);
   width: 100%;
   height: 100%;
   align-items: center;
@@ -115,7 +125,7 @@ html {
   flex-direction: column;
 }
 
-.hero .hero-content{
+.hero-content{
   background-image: radial-gradient(circle, rgba(255,255,255,0.004885993485342022) 1%, rgba(0,0,0,0.7866449511400652) 100%), url("/src/public/images/heros/hero-image_3.jpg");
   background-size: cover;
   background-position: center;
@@ -133,40 +143,54 @@ html {
   font-weight: 600;
 }
 
+.hero-content h1 span{
+  color: var(--color_2);
+}
+
 .hero-content p{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 2rem;
 }
-.hero-content a{
+.cta-button{
+  display: flex;
+  padding: 4px 12px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color_2);
+  border-radius: 16px;
+}
+.cta-button:hover {
+  background-color: var(--color_6);
+  border: 2px solid var(--color_2);
+  transition: background-color 500ms, border-color 1000ms;
+}
+
+.cta-button a{
   text-decoration: none;
   color: var(--color_1);
-  padding: 6px 16px;
-  background-color: var(--color_2);
-  font-size: 1.2rem;
-  border-radius: 8px;
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 4px 8px;
+  /* background-color: red; */
 }
+.cta-button i{
+  text-decoration: none;
+  color: var(--color_1);
+  font-size: 1.2rem;
+  /* background-color: red; */
+}
+
 #restaurantList{
   display: grid;
   grid-template-columns: repeat(auto-fit,max);
 }
-
 .restaurant-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
 }
-
-.card-item {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
 .item-cover {
   width: 100%;
   height: 200px;
@@ -187,7 +211,6 @@ html {
 .item-name {
   font-size: 18px;
   margin: 10px 10px 0px 10px;
-
 }
 
 .item-description {
@@ -199,7 +222,7 @@ html {
 }
 .restaurant-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   padding: 24px;
 }
@@ -235,16 +258,15 @@ html {
 
 .item-name {
   font-size: 18px;
-  margin: 12px;
+  margin: 10px;
 }
 
 .item-description {
   font-size: 14px;
-  margin: 12px;
-  height: 96px;
+  margin: 10px;
+  height: 100px;
   overflow: auto;
 }
-/* TODO: LANJUT BAGIAN DESIGN FOOTER */
 
 
 
@@ -256,17 +278,101 @@ html {
     padding: 40px;
     margin: auto;
   }
+  .hero-content h1{
+    font-size: 3.5rem;
+  }
+  .hero-content h1 span{
+    color: var(--color_2);
+  }
+    .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo{
+    max-width: 32px;
+    max-height: 32px;
+    height: auto;
+  }
+
 }
 
 
 /* Media query untuk desktop */
 @media (min-width: 1024px) {
+  .hero{
+    
+  }
   .restaurant-list {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 960px;
+    max-width: 1200px;
+    padding: 60px;
     margin: auto;
   }
-  .nav-menu{
-    display: none;
+
+  .hero-content h1{
+    font-size: 5rem;
+  }
+  .hero-content h1 span{
+    color: var(--color_2);
+  }
+
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo{
+    height: 64px;
+    width: auto;
+    order: 1;
+  }
+
+  .nav-menu {
+    display: static;
+    cursor: inherit;
+    position: static;
+    z-index: auto;
+    order: 3;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .nav-links {
+    position: static;
+    width: auto;
+    height: auto;
+    top: auto;
+    right: auto;
+    background-color: #F6B17A;
+    color: var(--color_1);
+    box-shadow: none;
+    z-index: auto;
+    transition: none;
+    opacity: 1;     
+    visibility: visible;
+    border-radius: 12px;
+    order: 2;
+  }
+  
+  .nav-links ul{
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    list-style: none;
+  }
+
+  .nav-links ul li a{
+    text-decoration: none;
+    padding: 12px;
+    color: var(--color_6);
+  }
+
+  .nav-links ul li a:hover{
+  color: var(--color_1);
+  transition: color 300ms;
   }
 }

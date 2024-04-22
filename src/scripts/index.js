@@ -30,7 +30,7 @@ restaurantItem(myData);
 const body = document.body;
 const navMenu = document.getElementById('nav-menu');
 const linksMenu = document.getElementById('nav-links-menu');
-const links = linksMenu.querySelectorAll('a'); // Ambil semua anchor tags dalam nav-links-menu
+const links = linksMenu.querySelectorAll('a');
 
 navMenu.addEventListener('click', function () {
   linksMenu.classList.toggle('active');
@@ -41,7 +41,6 @@ navMenu.addEventListener('click', function () {
   }
 });
 
-// Gunakan links (yang berupa NodeList), dan aplikasikan forEach
 links.forEach(link => {
   link.addEventListener('click', () => {
     linksMenu.classList.remove('active');
