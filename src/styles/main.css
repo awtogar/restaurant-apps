@@ -26,34 +26,61 @@ html {
   z-index: -9999;
 }
 
+
 .nav{
+  position: fixed;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px;
+  width: 100%;
+}
+.nav .logo{
+  height: 32px;
+  width: auto;
+  fill: var(--color_1);
+}
+.nav .logo:hover{
+  transition: fill 300ms ease-in-out;
+  fill: var(--color_2);
+}
+
+.nav .nav-menu{
+  height: 32px;
+  width: 32px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+}
+.nav button i{
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--color_1);
+
+}
+.nav button i:hover{
+  color: var(--color_2);
+  transition: color 300ms ease-in-out;
 }
 
 
-
-
-
-
-
-
-
-
 .nav-menu {
-  display: block; /* Pastikan button ini selalu terlihat untuk membuka sidebar */
+  display: block;
   cursor: pointer;
-  position: relative; /* Ubah posisinya agar lebih fleksibel dengan z-index */
+  position: relative;
   z-index: 1001; 
 }
 
 .nav-links {
-  display: none; /* menghilangkan nav saat default */
+  /* display none buat nav ilang saat default */
+  display: none; 
   position: fixed;
   width: 75%;
   height: 100%;
   top: 0;
   right: 0;
-  background: var(--color_3);
+  background: var(--color_6);
   box-shadow: 2px 0 5px rgba(0,0,0,0.5);
   z-index: 1000;
 }
@@ -62,17 +89,172 @@ html {
 .nav-links.active {
   display: block;
 }
-
-.nav-menu {
-  display: block;
-  cursor: pointer;
+.nav-links.active ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  background-color: var(--color_6);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
 }
+.nav-links.active ul li a{
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--color_1);
+}
+.nav-links.active ul li a:hover{
+  color: var(--color_2);
+  transition: color 300ms;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero .hero-content{
+  background-image: radial-gradient(circle, rgba(255,255,255,0.004885993485342022) 1%, rgba(0,0,0,0.7866449511400652) 100%), url("/src/public/images/heros/hero-image_3.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.hero-content h1{
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.hero-content p{
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+.hero-content a{
+  text-decoration: none;
+  color: var(--color_1);
+  padding: 6px 16px;
+  background-color: var(--color_2);
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: 400;
+}
+#restaurantList{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,max);
+}
+
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card-item {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.item-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.item-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-rating i {
+  color: gold;
+}
+
+.item-name {
+  font-size: 18px;
+  margin: 10px 10px 0px 10px;
+
+}
+
+.item-description {
+  font-size: 14px;
+  margin: 12px;
+  height: 100px;
+  overflow: auto;
+  text-align: justify;
+}
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+.card-item {
+  background: var(--color_1);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.item-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.item-header {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-rating{
+  display: flex;
+  align-items: center;
+}
+
+.header-rating i {
+  color: gold;
+}
+
+.item-name {
+  font-size: 18px;
+  margin: 12px;
+}
+
+.item-description {
+  font-size: 14px;
+  margin: 12px;
+  height: 96px;
+  overflow: auto;
+}
+/* TODO: LANJUT BAGIAN DESIGN FOOTER */
+
+
 
 
 /* Media query untuk tablet */
 @media (min-width: 768px) {
   .restaurant-list {
+    grid-template-columns: repeat(2, 1fr);
     padding: 40px;
+    margin: auto;
   }
 }
 
@@ -80,8 +262,11 @@ html {
 /* Media query untuk desktop */
 @media (min-width: 1024px) {
   .restaurant-list {
-    padding: 60px;
+    grid-template-columns: repeat(3, 1fr);
     max-width: 960px;
     margin: auto;
+  }
+  .nav-menu{
+    display: none;
   }
 }

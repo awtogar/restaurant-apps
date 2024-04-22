@@ -9,34 +9,43 @@ const restaurantItem = (data) => {
     data.restaurants.forEach((restaurant) => {
         const restaurantList = document.getElementById('restaurantList');
         restaurantList.innerHTML += `
-        <article class="card-item" ${restaurant.id}>
-          <img class="item-cover" src="${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}]">
-          <div class="item-header">
-            <p class="header-city">${restaurant.city}</p>
-            <div class="header-rating">
-              <i class="ri-star-fill"></i>
-              <p class="rating-number">${restaurant.rating}</p>
+        <article class="card-item">
+            <img class="item-cover" src="${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}">
+            <div class="item-header">
+              <p class="header-city">${restaurant.city}</p>
+              <div class="header-rating">
+                <i class="ri-star-fill"></i>
+                <p class="rating-number">${restaurant.rating}</p>
+              </div>
             </div>
-          </div>
-          <h2 class="item-name">${restaurant.name}</h2>
-          <p class="item-description">${restaurant.description}</p>
+            <h2 class="item-name">${restaurant.name}</h2>
+            <p class="item-description">${restaurant.description}</p>
+          </article>
         `;
     });
 }
 restaurantItem(myData);
 
-const navigationMenu = document.getElementById('nav-menu');
-const overFlow = document.body;
-navigationMenu.addEventListener('click', function () {
-  const navLinks = document.querySelector('.nav-links');
-  navLinks.classList.toggle('active');
-  // ide oveflow belakang akan disable saat active
-  // overFlow.style.overflow='hidden';
+
+const body = document.body;
+const navMenu = document.getElementById('nav-menu');
+const linksMenu = document.getElementById('nav-links-menu');
+const links = linksMenu.querySelectorAll('a'); // Ambil semua anchor tags dalam nav-links-menu
+
+navMenu.addEventListener('click', function () {
+  linksMenu.classList.toggle('active');
+  if (linksMenu.classList.contains('active')) {
+    body.style.overflow = 'hidden';
+  } else {
+    body.style.overflow = 'auto';
+  }
 });
 
-//Tutup sidebar ketika link di-klik
-document.querySelectorAll('.nav-links a').forEach(link => {
+// Gunakan links (yang berupa NodeList), dan aplikasikan forEach
+links.forEach(link => {
   link.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.remove('active');
+    linksMenu.classList.remove('active');
+    body.style.overflow = 'auto';
   });
 });
+
