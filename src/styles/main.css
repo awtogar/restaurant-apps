@@ -26,7 +26,6 @@ html {
   z-index: -9999;
 }
 
-
 .nav{
   position: fixed;
   display: flex;
@@ -35,38 +34,40 @@ html {
   padding: 12px 12px;
   width: 100%;
 }
+
 .logo{
-  max-height: 32px;
-  max-width: 32px; 
+  max-height: 44px;
+  max-width: 44px; 
   fill: var(--color_1);
 }
+
 .logo:hover{
   transition: fill 300ms ease-in-out;
   fill: var(--color_2);
 }
 
 .nav .nav-menu{
-  height: 32px;
-  width: 32px;
+  height: 48px;
+  width: 48px;
   outline: none;
   border: none;
   background-color: transparent;
-
 }
+
 .nav button i{
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 900;
   color: var(--color_1);
-
 }
+
 .nav button i:hover{
   color: var(--color_2);
   transition: color 300ms ease-in-out;
 }
+
 .nav button:active i, .nav-links ul li a:active {
   opacity: 0.7;
 }
-
 
 .nav-menu {
   display: block;
@@ -98,6 +99,7 @@ html {
   visibility: visible;
   transition: right 1.5s ease, opacity 1.5s ease, visibility 0s linear 0s;
 }
+
 .nav-links.active ul {
   display: flex;
   flex-direction: column;
@@ -110,10 +112,13 @@ html {
   justify-content: center;
   gap: 2.5rem;
 }
+
 .nav-links.active ul li a{
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--color_1);
+  min-width: 44px;
+  min-height: 44px;
 }
 .nav-links.active ul li a:hover{
   color: var(--color_2);
@@ -152,33 +157,31 @@ html {
   font-weight: 300;
   margin-bottom: 2rem;
 }
-.cta-button{
-  display: flex;
-  padding: 4px 12px;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color_2);
-  border-radius: 16px;
+.cta-button {
+    color: var(--color_1);
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 6px 12px;
+    background-color: var(--color_2);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--color_1);
+    min-width: 44px;
+    min-height: 44px;
+    text-align: center;
+    align-content: center;
 }
+
 .cta-button:hover {
   background-color: var(--color_6);
   border: 2px solid var(--color_2);
   transition: background-color 500ms, border-color 1000ms;
 }
 
-.cta-button a{
-  text-decoration: none;
-  color: var(--color_1);
-  font-weight: 300;
-  font-size: 1rem;
-  padding: 4px 8px;
-  /* background-color: red; */
-}
 .cta-button i{
   text-decoration: none;
   color: var(--color_1);
   font-size: 1.2rem;
-  /* background-color: red; */
 }
 
 #restaurantList{
@@ -268,111 +271,56 @@ html {
   overflow: auto;
 }
 
-
-
-
-/* Media query untuk tablet */
-@media (min-width: 768px) {
-  .restaurant-list {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
-    margin: auto;
-  }
-  .hero-content h1{
-    font-size: 3.5rem;
-  }
-  .hero-content h1 span{
-    color: var(--color_2);
-  }
-    .nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .logo{
-    max-width: 32px;
-    max-height: 32px;
-    height: auto;
-  }
-
+footer {
+    background-color: var(--color_2);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1;
 }
 
+.happs-info {
+    margin-bottom: 20px;
+}
 
-/* Media query untuk desktop */
-@media (min-width: 1024px) {
-  .hero{
-    
-  }
-  .restaurant-list {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1200px;
-    padding: 60px;
-    margin: auto;
-  }
-
-  .hero-content h1{
-    font-size: 5rem;
-  }
-  .hero-content h1 span{
-    color: var(--color_2);
-  }
-
-  .nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo{
-    height: 64px;
+.info-logo {
+    margin-bottom: 10px;
+    background: url(../public/images/resto/Typemark.svg);
+    fill: var(--color_1);
+    height: 44px;
     width: auto;
-    order: 1;
-  }
+    min-width: 44px;
+    min-height: 44px;
+}
+.social{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.social p{
+  font-size: 2rem;
+}
+.social-links{
+  display: flex;
+}
 
-  .nav-menu {
-    display: static;
-    cursor: inherit;
-    position: static;
-    z-index: auto;
-    order: 3;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .nav-links {
-    position: static;
-    width: auto;
-    height: auto;
-    top: auto;
-    right: auto;
-    background-color: #F6B17A;
+.social-links a {
     color: var(--color_1);
-    box-shadow: none;
-    z-index: auto;
-    transition: none;
-    opacity: 1;     
-    visibility: visible;
-    border-radius: 12px;
-    order: 2;
-  }
-  
-  .nav-links ul{
-    position: static;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    list-style: none;
-  }
+    margin: 0 10px;
+    font-size: 2rem;
+    display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
+}
 
-  .nav-links ul li a{
-    text-decoration: none;
-    padding: 12px;
-    color: var(--color_6);
-  }
+.social-links a:hover {
+    color: #eaeaea;
+}
 
-  .nav-links ul li a:hover{
-  color: var(--color_1);
-  transition: color 300ms;
-  }
+.happs-info p {
+    margin-bottom: 10px;
 }

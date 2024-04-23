@@ -28,10 +28,12 @@ restaurantItem(myData);
 
 
 const body = document.body;
+const navbar = document.getElementById('nav')
 const navMenu = document.getElementById('nav-menu');
 const linksMenu = document.getElementById('nav-links-menu');
 const links = linksMenu.querySelectorAll('a');
 
+// biar ga bisa scroll saat aktif
 navMenu.addEventListener('click', function () {
   linksMenu.classList.toggle('active');
   if (linksMenu.classList.contains('active')) {
@@ -41,10 +43,18 @@ navMenu.addEventListener('click', function () {
   }
 });
 
+// bikin menu close saat diclik link dan aktif in scroll overflow
 links.forEach(link => {
-  link.addEventListener('click', () => {
+  const activateLink = () => {
     linksMenu.classList.remove('active');
-    body.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+  };
+
+  // saat di clik atau enter akan close menu
+  link.addEventListener('click', activateLink);
+  link.addEventListener('keypress', event => {
+    if (event.key === 'Enter') {
+      activateLink();
+    }
   });
 });
-

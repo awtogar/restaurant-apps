@@ -1,0 +1,45 @@
+/* Media query untuk tablet */
+@media (min-width: 768px) {
+  .restaurant-list {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+    margin: auto;
+  }
+  .hero-content h1{
+    font-size: 3.5rem;
+  }
+  .hero-content h1 span{
+    color: var(--color_2);
+  }
+    .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo{
+    max-width: 56px;
+    max-height: 56px;
+    height: auto;
+  }
+}
+
+.nav-links.active ul li :focus{
+  outline: none;
+  border: var(--color_2)   2px solid;
+  padding: 0px 8px;
+  border-radius: 8px;
+}
+
+.nav-links ul li :focus{
+  outline: none;
+  border: var(--color_1)   2px solid;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.cta-button:focus{
+  outline: none;
+  border: var(--color_1)   2px solid;
+  padding: 4px 8px;
+  border-radius: 8px;
+}

@@ -1,0 +1,137 @@
+/*laptop and small desktop*/
+@media (min-width: 1024px) {
+  .restaurant-list {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    padding: 60px;
+    margin: auto;
+  }
+
+  .hero-content h1{
+    font-size: 5rem;
+  }
+
+  .hero-content h1 span{
+    color: var(--color_2);
+  }
+
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo{
+    height: 64px;
+    width: auto;
+    order: 1;
+  }
+
+  .nav-menu {
+    display: static;
+    cursor: inherit;
+    position: static;
+    z-index: auto;
+    order: 3;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .nav-links {
+    position: static;
+    width: auto;
+    height: auto;
+    top: auto;
+    right: auto;
+    background-color: #F6B17A;
+    color: var(--color_1);
+    box-shadow: none;
+    z-index: auto;
+    transition: none;
+    opacity: 1;     
+    visibility: visible;
+    border-radius: 12px;
+    order: 2;
+  }
+  
+  .nav-links ul{
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    list-style: none;
+  }
+
+  .nav-links ul li a{
+    text-decoration: none;
+    padding: 12px;
+    color: var(--color_6);
+  }
+
+  .nav-links ul li a:hover{
+  color: var(--color_1);
+  transition: color 300ms;
+  }
+
+  .nav-links.active ul li :focus{
+  outline: none;
+  border: var(--color_2)   2px solid;
+  padding: 0px 8px;
+  border-radius: 8px;
+  }
+
+  .nav-links ul li :focus{
+    outline: none;
+    border: var(--color_1)   2px solid;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+
+  .cta-button:focus{
+    outline: none;
+    border: var(--color_1)   2px solid;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+}
+
+/* Laptop dan desktop lebih besar */
+@media (min-width: 1200px) {
+  .hero-content {
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .nav-links{
+    visibility: visible;
+    opacity: 1;
+  }
+  .nav .logo{
+    visibility: hidden;
+    opacity: 0;
+  }
+  .nav .nav-menu{
+    visibility: hidden;
+    opacity: 0;
+  }
+  .nav-links.active ul li :focus{
+    outline: none;
+    border: none;
+    padding: 0px 2px;
+    border-radius: 8px;
+  }
+
+  .nav-links ul li :focus{
+    outline: none;
+    border: var(--color_1)   1px solid;
+    padding: 0px 4px;
+    border-radius: 8px;
+  }
+
+  .cta-button:focus{
+    outline: none;
+    border: var(--color_1)   1px solid;
+    padding: 0px 6px;
+    border-radius: 8px;
+  }
+}
