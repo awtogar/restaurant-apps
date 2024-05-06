@@ -12,7 +12,6 @@ export default class myRestaurantList {
         console.log('Data terpanggil EAEAEA:', data);
         this.render();
     }
-    
 
     render() {
         this.data.restaurants.forEach(restaurant => {
@@ -34,3 +33,9 @@ export default class myRestaurantList {
         });
     }
 }
+
+// TODO:
+// NANTI SETIAP ITEM AKAN ADA CTA UNTUK LIHAT DETAILS
+// SETELAH DI CLIK AKAN MENGARAHKAN KEE PAGES BARU DETAILS RESTAURANT TERSEBUT
+// PADA HALAMAN RESTAURAN BERISIKAN : Gambar, Alamat, Kota, Deskripsi, Menu Makanan, Menu Minuman, Customer Reviews
+// Ada tombol favorite untuk memasukkan atau menghapus restoran favorit dari database. Penyimpanan ini menggunakan IndexedDB.

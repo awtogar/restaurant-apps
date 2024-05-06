@@ -1,5 +1,6 @@
-import myRestaurantList from './listOfRestaurants.js';
+import myRestaurantList from './resto-list.js';
 import Drawer from '../utils/drawer-initiator';
+
 
 class App {
     constructor() {
