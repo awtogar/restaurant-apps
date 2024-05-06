@@ -1,6 +1,5 @@
-import RestaurantList from '../views/restaurantList';
+import myRestaurantList from './listOfRestaurants.js';
 import Drawer from '../utils/drawer-initiator';
-import myData from '../../public/data/DATA.json';
 
 class App {
     constructor() {
@@ -8,11 +7,10 @@ class App {
     }
 
     _initialAppShell() {
-        // Inisialisasi komponen-komponen AppShell
-        this.restaurantList = new RestaurantList('restaurantList', myData);
+        this.myRestaurantList = new myRestaurantList('restaurantList');
         this.drawer = new Drawer('nav-menu', 'nav-links-menu');
-        // Kamu bisa menambahkan komponen lain jika perlu
     }
+    
 }
 
 export default App;
