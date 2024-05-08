@@ -1,6 +1,5 @@
-import myRestaurantList from './resto-list.js';
-import Drawer from '../utils/drawer-initiator';
-
+import MyRestaurantList from './resto-list.js';
+import DrawerInitiator from '../utils/drawer-initiator';
 
 class App {
     constructor() {
@@ -8,10 +7,13 @@ class App {
     }
 
     _initialAppShell() {
-        this.myRestaurantList = new myRestaurantList('restaurantList');
-        this.drawer = new Drawer('nav-menu', 'nav-links-menu');
+        DrawerInitiator.init({
+            navMenuId: 'nav-menu',
+            linksMenuId: 'nav-links-menu'
+        });
+
+        this.restaurantList = new MyRestaurantList('restaurantList'); 
     }
-    
 }
 
 export default App;

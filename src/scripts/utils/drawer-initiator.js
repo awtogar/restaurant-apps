@@ -1,21 +1,21 @@
-class Drawer {
-    constructor(navMenuId, linksMenuId) {
+const DrawerInitiator = {
+    init({ navMenuId, linksMenuId }) {
         this.body = document.body;
         this.navMenu = document.getElementById(navMenuId);
         this.linksMenu = document.getElementById(linksMenuId);
         this.links = this.linksMenu.querySelectorAll('a');
         this.addEventListeners();
-    }
+    },
 
     toggleDrawer() {
         this.linksMenu.classList.toggle('active');
         this.body.style.overflow = this.linksMenu.classList.contains('active') ? 'hidden' : 'auto';
-    }
+    },
 
     closeDrawer() {
         this.linksMenu.classList.remove('active');
         this.body.style.overflow = 'auto';
-    }
+    },
 
     addEventListeners() {
         this.navMenu.addEventListener('click', () => this.toggleDrawer());
@@ -28,6 +28,6 @@ class Drawer {
             });
         });
     }
-}
+};
 
-export default Drawer;
+export default DrawerInitiator;

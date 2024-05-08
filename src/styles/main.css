@@ -32,14 +32,18 @@ html {
   top: 0;
 }
 
-.nav{
+
+.nav {
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 12px;
   width: 100%;
+  top: 0; 
+  transition: top 0.3s;
 }
+
 
 .logo{
   max-height: 44px;
@@ -194,11 +198,12 @@ html {
   display: grid;
   grid-template-columns: repeat(auto-fit,max);
 }
+
 .restaurant-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  gap: 24px;
+  padding: 24px;
 }
 .item-cover {
   width: 100%;
@@ -229,12 +234,7 @@ html {
   overflow: auto;
   text-align: justify;
 }
-.restaurant-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 24px;
-}
+
 
 .card-item {
   background: var(--color_1);
