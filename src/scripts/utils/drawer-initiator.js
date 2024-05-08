@@ -27,6 +27,11 @@ const DrawerInitiator = {
                 }
             });
         });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                this.closeDrawer();
+            }
+        });
     }
 };
 
