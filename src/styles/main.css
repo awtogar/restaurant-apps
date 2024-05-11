@@ -166,7 +166,7 @@ html {
 .hero-content p{
   font-size: 1.2rem;
   font-weight: 300;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 .cta-button {
     color: var(--color_1);
@@ -196,13 +196,12 @@ html {
 }
 
 .cta-button-item{
-  margin: 0px 10px 10px 10px;
-  padding: 2px 12px;
+  margin: 0px 12px 12px 12px;
+  padding: 12px;
   background-color: var(--color_2);
   outline: none;
   border: none;
   border-radius: 4px;
-  border: 1px solid var(--color_6);
   box-shadow: 0 4px 2px rgba(0,0,0,0.1);
 }
 .cta-button-item:hover{
@@ -246,15 +245,20 @@ html {
 }
 
 .item-description {
-  font-size: 14px;
-  margin: 12px;
+  font-size: 1rem;
+  margin: 6px 12px 6px 12px;
+  overflow: hidden;
+  margin: 10px;
   height: 100px;
-  overflow: auto;
   text-align: justify;
 }
 
 
+
 .card-item {
+  display: flex;
+  flex-direction: column;
+
   background: var(--color_1);
   border: 1px solid #eaeaea;
   border-radius: 8px;
@@ -269,7 +273,7 @@ html {
 }
 
 .item-header {
-  padding: 12px;
+  padding: 6px 12px 6px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -283,24 +287,16 @@ html {
   color: gold;
 }
 
-.item-name {
-  font-size: 18px;
-  margin: 10px;
-}
 
-.item-description {
-  font-size: 14px;
-  margin: 10px;
-  height: 100px;
-  overflow: auto;
-}
+
+
 
 footer {
     background-color: var(--color_2);
     color: #fff;
     text-align: center;
     padding: 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: 1;

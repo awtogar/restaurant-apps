@@ -27,4 +27,3 @@ const UrlParser = {
 };
 
 export default UrlParser;
-// TODO: BLM DI SESUAIKAN MASIH ARAHAN MODUL

@@ -1,15 +1,9 @@
-import NowPlaying from '../views/pages/now-playing';
-import Upcoming from '../views/pages/upcoming';
-import Detail from '../views/pages/detail';
+import favoritePage from '../views/pages/favorite-page';
+import detailPage from '../views/pages/detail-page';
 
 const routes = {
-    '/': NowPlaying, // default page
-    '/now-playing': NowPlaying,
-    '/upcoming': Upcoming,
-    '/detail/:id': Detail,
+    '/favorite': favoritePage,
+    '/detail/:id': detailPage
 };
 
 export default routes;
-
-
-// TODO: BLM DI SESUAIKAN MASIH ARAHAN MODUL
