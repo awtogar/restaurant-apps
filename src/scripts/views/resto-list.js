@@ -22,6 +22,7 @@ export default class myRestaurantList {
     render() {
         this.data.restaurants.forEach(restaurant => {
             const article = document.createElement('article');
+            article.setAttribute('id', `${restaurant.id}`);
             article.className = 'card-item';
             article.innerHTML = `
                 <img class="item-cover" src="https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}">
@@ -40,8 +41,8 @@ export default class myRestaurantList {
             this.container.appendChild(article);
 
             article.querySelector('.cta-button-item').addEventListener('click', () => {
-                document.getElementById('mainContainer').innerHTML = '';
-                new RestaurantDetail('mainContainer', restaurant);
+                document.getElementById('data-id').innerHTML = '';
+                new RestaurantDetail('data-id', restaurant);
             });
         });
     }
