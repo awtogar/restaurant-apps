@@ -1,24 +1,26 @@
 const DrawerInitiator = {
-    init({ navMenuId, linksMenuId }) {
+    init({ button, drawer, content }) {
         this.body = document.body;
-        this.navMenu = document.getElementById(navMenuId);
-        this.linksMenu = document.getElementById(linksMenuId);
-        this.links = this.linksMenu.querySelectorAll('a');
+        this.button = button;
+        this.drawer = drawer;
+        this.content = content;
+        
+        this.links = this.drawer.querySelectorAll('a');
         this.addEventListeners();
     },
 
     toggleDrawer() {
-        this.linksMenu.classList.toggle('active');
-        this.body.style.overflow = this.linksMenu.classList.contains('active') ? 'hidden' : 'auto';
+        this.drawer.classList.toggle('active');
+        this.body.style.overflow = this.drawer.classList.contains('active') ? 'hidden' : 'auto';
     },
 
     closeDrawer() {
-        this.linksMenu.classList.remove('active');
+        this.drawer.classList.remove('active');
         this.body.style.overflow = 'auto';
     },
 
     addEventListeners() {
-        this.navMenu.addEventListener('click', () => this.toggleDrawer());
+        this.button.addEventListener('click', () => this.toggleDrawer());
         this.links.forEach(link => {
             link.addEventListener('click', () => this.closeDrawer());
             link.addEventListener('keypress', event => {

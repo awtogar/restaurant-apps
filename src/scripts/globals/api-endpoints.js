@@ -1,13 +1,11 @@
-import CONFIG from './config'
+import CONFIG from './config';
 
 const API_ENDPOINT = {
     LIST: `${CONFIG.BASE_URL}/list`,
     DETAIL: (id) => `${CONFIG.BASE_URL}/detail/${id}`,
-    SEARCH: (query) => `${CONFIG.BASE_URL}/search?q=${query}`,
-    REVIEW: `${CONFIG.BASE_URL}/review`,
-    IMAGE_SMALL: (pictureId) => `${CONFIG.BASE_IMAGE_URL.small}${pictureId}`,
-    IMAGE_MEDIUM: (pictureId) => `${CONFIG.BASE_IMAGE_URL.medium}${pictureId}`,
-    IMAGE_LARGE: (pictureId) => `${CONFIG.BASE_IMAGE_URL.large}${pictureId}`,
+    POST_REVIEW: `${CONFIG.BASE_URL}/review`,
+    SEARCH: (query) => `${CONFIG.BASE_URL}search?q=${query}`,
+    IMAGE: (pictureId) => `${CONFIG.BASE_IMAGE_URL}${pictureId}`,
 };
 
 export default API_ENDPOINT;

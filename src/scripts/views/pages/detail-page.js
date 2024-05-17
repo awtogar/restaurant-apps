@@ -1,5 +1,6 @@
-import { fetchRestaurantById } from '../resto-list.js';
+import fetchingRestoData from '../../helper/fetching-helper';
 import { createRestaurantDetailTemplate } from '../templates/template-creator';
+import urlParser from '../../routes/url-parser';
 
 const detailPage = {
     async render() {
@@ -9,17 +10,11 @@ const detailPage = {
     },
 
     async afterRender() {
-        const url = window.location.hash.toLowerCase();
-        const id = url.split('/')[2];
-
-        const detailContainer = document.getElementById('restaurant__detail');
-        try {
-            const restaurant = await fetchRestaurantById(id);
-            detailContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
-        } catch (error) {
-            detailContainer.innerHTML = `<p>Error: ${error.message}</p>`;
-        }
-    },
+        const url = urlParser.parseActiveUrlWithoutCombiner();
+        const restaurant = await fetchingRestoData.detailRestaurant(url.id);
+        const restaurantContainer = document.getElementById('#restaurant__detail');
+        restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+    }
 };
 
 export default detailPage;

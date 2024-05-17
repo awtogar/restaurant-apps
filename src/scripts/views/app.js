@@ -1,20 +1,24 @@
-import MyRestaurantList from './resto-list.js';
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
+import homePage from './pages/home-page';
 
 class App {
-    constructor() {
+    constructor({ button, drawer, content }) {
+        this._button = button;
+        this._drawer = drawer;
+        this._content = content;
+
         this._initialAppShell();
         this._initListeners();
-        this.restaurantList = new MyRestaurantList('restaurantList');
-        this.renderPage(); 
+        this.renderPage();
     }
 
     _initialAppShell() {
         DrawerInitiator.init({
-            navMenuId: 'nav-menu',
-            linksMenuId: 'nav-links-menu'
+            button: this._button,
+            drawer: this._drawer,
+            content: this._content,
         });
     }
 
@@ -25,12 +29,22 @@ class App {
     async renderPage() {
         const url = UrlParser.parseActiveUrlWithCombiner();
         const page = routes[url];
-        if (page) {
-            this._content = document.querySelector('#main-content');
-            this._content.innerHTML = await page.render();
-            await page.afterRender();
-        }
+        this._content.innerHTML = await page.render();
+        await page.afterRender();
     }
 }
+
+// File: app.js
+
+// Fungsi untuk memuat halaman
+const loadPage = async () => {
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML = await homePage.render();
+    await homePage.afterRender();
+};
+
+// Event listener untuk memuat halaman setelah DOM siap
+document.addEventListener('DOMContentLoaded', loadPage);
+
 
 export default App;

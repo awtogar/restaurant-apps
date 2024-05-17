@@ -1,54 +1,61 @@
+import CONFIG from '../../globals/config';
+
+const createRestaurantItemTemplate = (restaurant) => {
+    const article = document.createElement('article');
+    article.className = 'card-item';
+    article.innerHTML = `
+    <img class="item-cover" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}">
+    <div class="item-header">
+      <p class="header-city">${restaurant.city}</p>
+      <div class="header-rating">
+        <i class="ri-star-fill"></i>
+        <p class="rating-number">${restaurant.rating}</p>
+      </div>
+    </div>
+    <h2 class="item-name">${restaurant.name}</h2>
+    <p class="item-description">${restaurant.description}</p>
+    <button class="cta-button-item" data-id="${restaurant.id}">Details</button>
+  `;
+    return article;
+};
 
 const createRestaurantDetailTemplate = (restaurant) => `
-    <div class="restaurant__detail">
-        <h2 class="restaurant__name">${restaurant.name}</h2>
-        <img class="restaurant__image" src="https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}" alt="${restaurant.name}">
-        <div class="restaurant__info">
-            <p class="restaurant__address"><strong>Address:</strong> ${restaurant.address}</p>
-            <p class="restaurant__city"><strong>City:</strong> ${restaurant.city}</p>
-            <p class="restaurant__description"><strong>Description:</strong> ${restaurant.description}</p>
-        </div>
-        <div class="restaurant__menu">
-            <h3>Menu</h3>
-            <div class="menu__foods">
-                <h4>Foods</h4>
-                <ul>
-                    ${restaurant.menus.foods.map(food => `<li>${food.name}</li>`).join('')}
-                </ul>
-            </div>
-            <div class="menu__drinks">
-                <h4>Drinks</h4>
-                <ul>
-                    ${restaurant.menus.drinks.map(drink => `<li>${drink.name}</li>`).join('')}
-                </ul>
-            </div>
-        </div>
-        <div class="restaurant__reviews">
-            <h3>Customer Reviews</h3>
-            ${restaurant.customerReviews.map(review => `
-                <div class="review">
-                    <p class="review__author"><strong>${review.name}:</strong> ${review.review}</p>
-                    <p class="review__date"><em>${review.date}</em></p>
-                </div>
-            `).join('')}
-        </div>
+<section class="restaurant-detail">
+  <div id="favButtonContainer">
+    <button type="button" class="favorite-button" id="isFavorited" aria-label="add to your favorite"></button>
+  </div>
+  <div>
+    <img class="detail-cover" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="footage of restaurant at ${restaurant.name}">
+    <div class="detail-header">
+      <p class="detail-city">${restaurant.city}</p>
+      <div class="detail-header-rating">
+        <i class="ri-star-fill"></i>
+        <p class="rating-number">${restaurant.rating}</p>
+      </div>
     </div>
-`;
-
-export  { createRestaurantDetailTemplate };
-
-
-const createRestaurantFavoriteTemplate = (restaurant) => `
-    <div class="restaurant-item">
-        <div class="restaurant-header">
-            <img src="https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}" alt="${restaurant.name}" />
-            <h2>${restaurant.name}</h2>
+    <h2 class="detail-name">${restaurant.name}</h2>
+    <p class="detail-description">${restaurant.description}</p>
+  </div>
+  <div class="reviewContainer">
+    <h2>Custommer Reviews</h2>
+    <form id="review-form">
+      <input name="name" type="text" placeholder="Name" required>
+      <input name="review" type="text" placeholder="Review" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="review-list">
+      ${restaurant.customerReviews.map((review) => `
+        <div class="detail__review-item">
+          <img src="https://cdn.statically.io/avatar/shape=circle/Gilang" alt="Gilang">
+          <div class="detail__review-item-content">
+            <p id="name">${review.name}</p>
+            <small>${review.date}</small>
+            <p>${review.review}</p>
+          </div>
         </div>
-        <div class="restaurant-info">
-            <p>${restaurant.city} - Rating: ${restaurant.rating}</p>
-            <a href="#/detail/${restaurant.id}" class="details-link">View Details</a>
-        </div>
+      `).join('')}
     </div>
-`;
+  </div>
+</section>`;
 
-export { createRestaurantFavoriteTemplate };
+export { createRestaurantItemTemplate, createRestaurantDetailTemplate };

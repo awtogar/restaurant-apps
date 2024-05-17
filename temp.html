@@ -1,0 +1,58 @@
+<section class="restaurant-favorite-list">
+    <h1>Your favorite restaurant</h1>
+    <div class="favorite-container" id="favoriteList">
+        <div class="favorite-item">
+            <i class="ri-error-warning-line" alt="No Match Found"></i>
+            <p>you havent favorited restaurant yet</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="restaurant-detail">
+    <div id="favButtonContainer">
+        <button type="button" class="favorite-button" id="isFavorited" aria-label="add to your favorite"></button>
+    </div>
+    <div>
+        <img class="detail-cover" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}"
+            alt="footage of restaurant at ${restaurant.name}">
+        <div class="detail-header">
+            <p class="detail-city">${restaurant.city}</p>
+            <div class="detail-header-rating">
+                <i class="ri-star-fill"></i>
+                <p class="rating-number">${restaurant.rating}</p>
+            </div>
+        </div>
+        <h2 class="detail-name">${restaurant.name}</h2>
+        <p class="detail-description">${restaurant.description}</p>
+    </div>
+    <div class="reviewContainer">
+        <h2>Reviews</h2>
+        <form id="review-form">
+            <input name="name" type="text" placeholder="Name" required="">
+            <input name="review" type="text" placeholder="Review" required="">
+            <button type="submit">Submit</button>
+        </form>
+        <!-- review list -->
+        <div class="review-list">
+            ${restaurant.customerReviews.map((review) =>'
+            <div class="detail__review-item">
+                <img src="https://cdn.statically.io/avatar/shape=circle/Gilang" alt="Gilang">
+                <div class="detail__review-item-content">
+                    <p id="name">${review.name}</p>
+                    <small>${review.date}</small>
+                    <p>${review.review}</p>
+                </div>'
+
+            </div>
+            <div class="detail__review-item">
+                <img src="https://cdn.statically.io/avatar/shape=circle/Gilang" alt="Gilang">
+                <div class="detail__review-item-content">
+                    <p id="name">${review.name}</p>
+                    <small>${review.date}</small>
+                    <p>${review.review}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

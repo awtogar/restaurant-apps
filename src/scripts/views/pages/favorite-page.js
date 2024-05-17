@@ -1,37 +1,41 @@
-import { openDB } from 'idb';
-import { fetchRestaurantById } from '../resto-list.js';
-import { createRestaurantFavoriteTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
+import IndexedFavorite from '../../helper/favorite-helper';
 
-const favoritePage = {
+const Favorite = {
     async render() {
         return `
-            <div id="restaurants__favorite" class="favorite-page">
-                <h1>Your Favorite Restaurants</h1>
-                <div id="favorite-list" class="restaurants-list"></div>
-            </div>
-        `;
+            <section class="restaurant-favorite-list">
+                <h1>Your favorite restaurant</h1>
+                    <div class="favorite-container" id="favoriteList">
+                        <div class="favorite-item">
+                            <i class="ri-error-warning-line"  alt="No Match Found"></i>
+                            <p>you havent favorited restaurant yet</p>
+                        </div>
+                    </div>
+            </section>
+            `;
     },
 
     async afterRender() {
-        const db = await openDB('restaurant-db', 1);
-        const allFavs = await db.getAll('favorites');
-        const restaurantContainer = document.getElementById('favorite-list');
-
-        if (allFavs.length > 0) {
-            allFavs.forEach(async (fav) => {
-                try {
-                    const restaurant = await fetchRestaurantById(fav.id);
-                    const restaurantElement = document.createElement('div');
-                    restaurantElement.innerHTML = createRestaurantFavoriteTemplate(restaurant);
-                    restaurantContainer.appendChild(restaurantElement);
-                } catch (error) {
-                    restaurantContainer.innerHTML += `<p>Error: ${error.message}</p>`;
-                }
-            });
-        } else {
-            restaurantContainer.innerHTML = `<p>You have no favorite restaurants yet.</p>`;
+        const restaurants = await IndexedFavorite.getAllRestaurant();
+        const restaurantContainer = document.getElementById("explore-restaurant-list");
+        const empty = document.querySelector(".restaurant-item__not__found");
+        if (restaurants.length === 0) {
+            empty.innerHTML = `
+      <h2>Tidak ada favorite restaurant yang ditampilkan</h2>
+      `;
         }
+
+        restaurants.forEach((restaurant) => {
+            restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+        });
+
+        const skipLinkElem = document.querySelector(".skip-link");
+        skipLinkElem.addEventListener("click", (event) => {
+            event.preventDefault();
+            document.querySelector("#mainContent").focus();
+        });
     },
 };
 
-export default favoritePage;
+export default Favorite;

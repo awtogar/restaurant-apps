@@ -7,7 +7,6 @@ import App from './views/app';
 
 document.addEventListener('DOMContentLoaded', () => {
   new App();
-
   // drawer on scroll
   let lastScrollTop = 0;
   const navbar = document.querySelector('.nav');
