@@ -1,15 +1,13 @@
-import NowPlaying from '../views/pages/now-playing';
-import Upcoming from '../views/pages/upcoming';
-import Detail from '../views/pages/detail';
+import HomePage from '../views/pages/home-page';
+// import FavoritePage from '../views/pages/favorite-pages';
+import DetailPage from '../views/pages/detail-pages';
+
 
 const routes = {
-    '/': NowPlaying, // default page
-    '/now-playing': NowPlaying,
-    '/upcoming': Upcoming,
-    '/detail/:id': Detail,
+    "/": HomePage,
+    "/home": HomePage,
+    // "/favorite": HomePage,
+    "/detail/:id": DetailPage,
 };
 
 export default routes;
-
-
-// TODO: BLM DI SESUAIKAN MASIH ARAHAN MODUL
