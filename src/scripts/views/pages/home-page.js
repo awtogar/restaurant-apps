@@ -20,7 +20,6 @@ const HomePage = {
     `;
   },
 
-  // FIXME: HERO UDAH MUNCU SAAT URL MELOAD / TTETAPI RESTTAURANT LIST BELUM ADA
   async afterRender() {
     console.log("afterRender dipanggil");
 
