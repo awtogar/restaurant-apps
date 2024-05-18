@@ -1,12 +1,12 @@
 import HomePage from '../views/pages/home-page';
-// import FavoritePage from '../views/pages/favorite-pages';
-import DetailPage from '../views/pages/detail-pages';
+import DetailPage from '../views/pages/detail-page';
+import FavoritePage from '../views/pages/favorite-page';
 
 
 const routes = {
     "/": HomePage,
     "/home": HomePage,
-    // "/favorite": HomePage,
+    "/favorite": FavoritePage,
     "/detail/:id": DetailPage,
 };
 

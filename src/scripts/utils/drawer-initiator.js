@@ -1,38 +1,38 @@
+
+
+
 const DrawerInitiator = {
     init({ navMenuId, linksMenuId }) {
-        this.body = document.body;
-        this.navMenu = document.getElementById(navMenuId);
-        this.linksMenu = document.getElementById(linksMenuId);
-        this.links = this.linksMenu.querySelectorAll('a');
-        this.addEventListeners();
-    },
+        const navMenu = document.getElementById(navMenuId);
+        const linksMenu = document.getElementById(linksMenuId);
+        const links = linksMenu.querySelectorAll('a');
 
-    toggleDrawer() {
-        this.linksMenu.classList.toggle('active');
-        this.body.style.overflow = this.linksMenu.classList.contains('active') ? 'hidden' : 'auto';
-    },
-
-    closeDrawer() {
-        this.linksMenu.classList.remove('active');
-        this.body.style.overflow = 'auto';
-    },
-
-    addEventListeners() {
-        this.navMenu.addEventListener('click', () => this.toggleDrawer());
-        this.links.forEach(link => {
-            link.addEventListener('click', () => this.closeDrawer());
+        navMenu.addEventListener('click', () => this._toggleDrawer(linksMenu));
+        links.forEach(link => {
+            link.addEventListener('click', () => this._closeDrawer(linksMenu));
             link.addEventListener('keypress', event => {
                 if (event.key === 'Enter') {
-                    this.closeDrawer();
+                    this._closeDrawer(linksMenu);
                 }
             });
         });
+
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
-                this.closeDrawer();
+                this._closeDrawer(linksMenu);
             }
         });
-    }
+    },
+
+    _toggleDrawer(drawer) {
+        drawer.classList.toggle('active');
+        document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : 'auto';
+    },
+
+    _closeDrawer(drawer) {
+        drawer.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    },
 };
 
 export default DrawerInitiator;
