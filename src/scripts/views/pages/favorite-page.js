@@ -4,31 +4,23 @@ import { createItemListTemplate } from '../pages-templates/templates-creator';
 const FavoritePage = {
     async render() {
         return `
-      <section class="restaurant-section" id="restaurantSection">
-        <h1 class="section-title">Favorite Restaurants</h1>
-        <div class="restaurant-list" id="restaurantList"></div>
-      </section>
+        <h1>Favorite Restaurants</h1>
+        <section id="favoritesView" class="favorites_view"></section>
     `;
     },
 
     async afterRender() {
-        try {
             const restaurants = await FavoriteIdb.getAllRestaurants();
-            const restaurantContainer = document.getElementById('restaurantList');
-            restaurantContainer.innerHTML = '';
+            const favoritesContainer = document.getElementById('favoritesView');
+            const notAvailale = document.querySelector(".restaurant-item__not__found");
 
-            if (restaurants.length > 0) {
-                restaurants.forEach((restaurant) => {
-                    const restaurantElement = createItemListTemplate(restaurant);
-                    restaurantContainer.appendChild(restaurantElement);
-                });
-            } else {
-                restaurantContainer.innerHTML = "<p class='empty-message'>No favorite restaurants found.</p>";
+            if (restaurants.length === 0) {
+                notAvailale.innerHTML = `<h2>There's no favorited items</h2>`;
             }
-        } catch (error) {
-            console.error('Error fetching favorite restaurants:', error);
-        }
+        restaurants.forEach((restaurant) => {
+            favoritesContainer.innerHTML += createItemListTemplate(restaurant);
+        });
     },
 };
-
 export default FavoritePage;
+

@@ -1,0 +1,154 @@
+/* styles.css */
+
+/* Container styling */
+.restaurant-detail__container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Detail section styling */
+.restaurant-detail {
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image styling */
+.restaurant-detail__image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Info section styling */
+.restaurant-detail__info {
+    padding: 20px;
+}
+
+/* Name styling */
+.restaurant-detail__name {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* City styling */
+.restaurant-detail__city {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Description styling */
+.restaurant-detail__description {
+    font-size: 1em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Menu styling */
+.restaurant-detail__menu {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.restaurant-detail__menu li {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex: 1 1 30%;
+}
+
+/* Review section styling */
+.restaurant-detail__reviews {
+    list-style: none;
+    padding: 0;
+}
+
+.review-card {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-card__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-card__header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.review-card__info {
+    flex-grow: 1;
+}
+
+.review-card__name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.review-card__date {
+    color: #888;
+    margin: 0;
+}
+
+.review-card__content {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Form styling */
+.review-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}

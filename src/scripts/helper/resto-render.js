@@ -4,12 +4,14 @@ class rendererData {
     static async getRestaurants() {
         const response = await fetch(API_ENDPOINT.LIST);
         const responseJson = await response.json();
-        return responseJson; // Mengembalikan seluruh response JSON
+        return responseJson;
     }
 
     static async detailRestaurant(id) {
         const response = await fetch(API_ENDPOINT.DETAIL(id));
-        return response.json();
+        const responseJson = await response.json();
+        console.log(responseJson);
+        return responseJson.restaurant;
     }
 
     static async userReview(data) {
