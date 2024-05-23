@@ -1,17 +1,25 @@
-import { openDB } from "idb";
-import CONFIG from "../globals/config";
+// favorite-idb.js
+import { openDB } from 'idb';
+import CONFIG from '../globals/config';
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
 
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
     upgrade(database) {
-        database.createObjectStore(OBJECT_STORE_NAME, {
-            keyPath: "id",
-        });
+        console.log("Upgrading database...");
+        if (!database.objectStoreNames.contains(OBJECT_STORE_NAME)) {
+            console.log("Creating object store:", OBJECT_STORE_NAME);
+            database.createObjectStore(OBJECT_STORE_NAME, {
+                keyPath: 'id',
+            });
+        } else {
+            console.log("Object store already exists:", OBJECT_STORE_NAME);
+        }
     },
 });
 
-const FavoriteIdb = {
+
+const favoritedDB = {
     async getRestaurant(id) {
         return (await dbPromise).get(OBJECT_STORE_NAME, id);
     },
@@ -29,4 +37,4 @@ const FavoriteIdb = {
     },
 };
 
-export default FavoriteIdb;
+export default favoritedDB;

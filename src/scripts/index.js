@@ -14,26 +14,24 @@ const app = new App({
 });
 
 let lastScrollTop = 0;
-const navbar = document.querySelector('.nav');
+const navBar = document.querySelector('.nav');
 const menuIcon = document.querySelector('.ri-menu-4-line');
 const logo = document.querySelector('.logo');
 
 window.addEventListener("scroll", () => {
   let scrollTop = window.scrollY;
-
   if (scrollTop > lastScrollTop) {
-    navbar.style.top = "-100px";
+    navBar.style.top = "-100px";
     logo.style.fill = 'var(--color_1)';
     menuIcon.style.color = 'var(--color_1)';
-  } else {
-    navbar.style.top = "0px";
-    logo.style.fill = 'var(--color_2)';
-    menuIcon.style.color = 'var(--color_2)';
+    } else {
+    navBar.style.top = "0px";
+      logo.style.fill = 'var(--color_2)';
+      menuIcon.style.color = 'var(--color_2)';
+    }
+    lastScrollTop = scrollTop;
   }
-  lastScrollTop = scrollTop;
-}
 );
-
 
 window.addEventListener('hashchange', () => {
   app.renderPage();
@@ -42,3 +40,10 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
   app.renderPage();
 });
+
+
+
+// FIXME: KETIKA MENGHAPUS FFAVORITE BLM BISA
+// FIXME: TAMBAHIN RESPONSIVE UNTUK DETAIL DAN FFAVORITE PAGE
+// FIXME: UNTUK TOMBOL LOVE GW MAU MELAYHANG DI ATAS PAGE BBUKAN DIBAWAH
+// TODO: KALO ITU SEMUA UDAH PROJECT INI AKAN DONE DAN TINGGAL WEB MANIFEST

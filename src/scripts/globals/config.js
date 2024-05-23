@@ -3,7 +3,8 @@ const CONFIG = {
     BASE_IMAGE_URL: "https://restaurant-api.dicoding.dev/images/medium",
     DATABASE_NAME: "dBRestaurant",
     DATABASE_VERSION: 1,
-    OBJECT_STORE_NAME: "restaurants",
+    OBJECT_STORE_NAME: "happs",
+    CACHE_NAME: "happs-cache",
 };
 
 export default CONFIG;

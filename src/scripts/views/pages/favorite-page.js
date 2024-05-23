@@ -1,26 +1,28 @@
-import FavoriteIdb from '../../data/favorite-idb';
+import FavoriteIdb from '../../data/favorited-IDB';
 import { createItemListTemplate } from '../pages-templates/templates-creator';
 
 const FavoritePage = {
     async render() {
         return `
-        <h1>Favorite Restaurants</h1>
-        <section id="favoritesView" class="favorites_view"></section>
-    `;
+            <h1>Favorite Restaurants</h1>
+            <section id="favoritesView" class="favorites_view"></section>
+        `;
     },
 
     async afterRender() {
-            const restaurants = await FavoriteIdb.getAllRestaurants();
-            const favoritesContainer = document.getElementById('favoritesView');
-            const notAvailale = document.querySelector(".restaurant-item__not__found");
+        const favoritedItems = await FavoriteIdb.getAllRestaurant();
+        const favoritedContainer = document.getElementById('favoritesView');
 
-            if (restaurants.length === 0) {
-                notAvailale.innerHTML = `<h2>There's no favorited items</h2>`;
-            }
-        restaurants.forEach((restaurant) => {
-            favoritesContainer.innerHTML += createItemListTemplate(restaurant);
+        if (favoritedItems.length === 0) {
+            const unAvailableFavorited = document.createElement('h2');
+            unAvailableFavorited.textContent = "There's no favorited yet!";
+            favoritedContainer.appendChild(unAvailableFavorited);
+        }
+        favoritedItems.forEach((restaurant) => {
+            favoritedContainer.innerHTML += createItemListTemplate(restaurant);
         });
     },
 };
+
 export default FavoritePage;
 

@@ -1,56 +1,86 @@
 /* styles.css */
 
-/* Container styling */
-.restaurant-detail__container {
+/* Favorite Button Container styling */
+#favoriteButtonContainer {
     display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f4f4f9;
-    min-height: 100vh;
-    box-sizing: border-box;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
-/* Detail section styling */
-.restaurant-detail {
-    max-width: 900px;
-    width: 100%;
+#favoriteButtonContainer button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+#favoriteButtonContainer button i {
+    font-size: 2em;
+    color: #FF6347; /* Warna merah */
+}
+
+/* Restaurant detail styling */
+.restaurant-detail__container {
+    margin: 20px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
 }
 
-/* Image styling */
-.restaurant-detail__image img {
+.restaurant-detail__header {
+    position: relative;
+}
+
+.restaurant-detail__rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.restaurant-detail__rating h1 {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.restaurant-detail__rating i {
+    color: #FFD700;
+}
+
+.restaurant-detail__image {
     width: 100%;
-    height: auto;
+    height: 200px; /* Ubah tinggi sesuai keinginan */
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-/* Info section styling */
 .restaurant-detail__info {
     padding: 20px;
 }
 
-/* Name styling */
 .restaurant-detail__name {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-bottom: 10px;
     color: #333;
 }
 
-/* City styling */
 .restaurant-detail__city {
     font-size: 1.2em;
     margin-bottom: 20px;
     color: #666;
 }
 
-/* Description styling */
 .restaurant-detail__description {
     font-size: 1em;
     margin-bottom: 20px;
@@ -58,7 +88,12 @@
     color: #444;
 }
 
-/* Menu styling */
+.restaurant-detail__menu-title {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 .restaurant-detail__menu {
     list-style: none;
     padding: 0;
@@ -76,7 +111,6 @@
     flex: 1 1 30%;
 }
 
-/* Review section styling */
 .restaurant-detail__reviews {
     list-style: none;
     padding: 0;
@@ -122,8 +156,7 @@
     line-height: 1.6;
 }
 
-/* Form styling */
-.review-form {
+.restaurant-detail__review-form {
     margin-top: 30px;
 }
 

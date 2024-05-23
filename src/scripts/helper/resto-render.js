@@ -4,17 +4,17 @@ class rendererData {
     static async getRestaurants() {
         const response = await fetch(API_ENDPOINT.LIST);
         const responseJson = await response.json();
-        return responseJson;
+        return responseJson.restaurants;
     }
 
     static async detailRestaurant(id) {
         const response = await fetch(API_ENDPOINT.DETAIL(id));
         const responseJson = await response.json();
-        console.log(responseJson);
         return responseJson.restaurant;
     }
 
-    static async userReview(data) {
+
+    static async postReview(data) {
         const options = {
             method: "POST",
             headers: {

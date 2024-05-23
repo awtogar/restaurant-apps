@@ -21,25 +21,28 @@
     max-height: 56px;
     height: auto;
   }
-}
+  .hero-content{
+  height: 50vh;
+  }
 
-.nav-links.active ul li :focus{
-  outline: none;
-  border: var(--color_2)   2px solid;
-  padding: 0px 8px;
-  border-radius: 8px;
-}
+  .nav-links.active ul li :focus{
+    outline: none;
+    border: var(--color_2)   2px solid;
+    padding: 0px 8px;
+    border-radius: 8px;
+  }
 
-.nav-links ul li :focus{
-  outline: none;
-  border: var(--color_1)   2px solid;
-  padding: 4px 8px;
-  border-radius: 8px;
-}
+  .nav-links ul li :focus{
+    outline: none;
+    border: var(--color_1)   2px solid;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
 
-.cta-button:focus{
-  outline: none;
-  border: var(--color_1)   2px solid;
-  padding: 4px 8px;
-  border-radius: 8px;
+  .cta-button:focus{
+    outline: none;
+    border: var(--color_1)   2px solid;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
 }
