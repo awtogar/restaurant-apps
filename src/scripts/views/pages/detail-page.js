@@ -1,32 +1,36 @@
-import rendererData from '../../helper/resto-render';
+import rendererData from '../../helper/data-render';
 import UrlParser from '../../routes/url-parser';
 import { createDetailTemplate } from '../pages-templates/templates-creator';
-import favoriteButtonInitiator from '../../utils/initiators-favorite';
+import { favoriteButtonInitiator, PostReviewOfRestaurant } from '../../utils/initiators-helper';
 
 const DetailPage = {
     async render() {
         return `
-            <section id="detailsView" class="details_view">
-                <!-- Tempat untuk menampilkan detail restoran -->
-            </section>
             <div id="favoriteButtonContainer"></div>
+            <section id="detailsView" class="details_view">
+                <!-- Here's the details -->
+            </section>
         `;
     },
 
     async afterRender() {
         const url = UrlParser.parseActiveUrlWithoutCombiner();
         const restaurant = await rendererData.detailRestaurant(url.id);
-        console.log(restaurant); // Log untuk melihat struktur data
+        console.log(restaurant);
 
         const restaurantContainer = document.querySelector('#detailsView');
         restaurantContainer.innerHTML = createDetailTemplate(restaurant);
-
         const favoriteButtonContainer = document.querySelector("#favoriteButtonContainer");
+        const submitUserReview = document.getElementById("SubmitYourReview");
 
-        // Pastikan elemen ada sebelum inisialisasi
+        submitUserReview.addEventListener("click", (event) => {
+            event.preventDefault();
+            PostReviewOfRestaurant();
+        });
+
         if (favoriteButtonContainer) {
             await favoriteButtonInitiator.init({
-                favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+                favoriteButtonContainer,
                 restaurant: {
                     id: restaurant.id,
                     name: restaurant.name,

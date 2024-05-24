@@ -357,3 +357,15 @@ footer {
 .happs-info p {
     margin-bottom: 10px;
 }
+
+
+/* TEMPLATES-CREATOR */
+
+.restaurant-detail__card{
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-detail__header{
+  
+}

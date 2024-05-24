@@ -1,5 +1,7 @@
 import FavoriteIdb from '../data/favorited-IDB';
 import { createButtonUnFavoritedRestaurantTemplate, createButtonFavoritedRestaurantTemplate } from '../views/pages-templates/templates-creator';
+import rendererData from '../helper/data-render';
+import UrlParser from '../routes/url-parser';
 
 const favoriteButtonInitiator = {
     async init({ favoriteButtonContainer, restaurant }) {
@@ -33,7 +35,6 @@ const favoriteButtonInitiator = {
                 await FavoriteIdb.putRestaurant(this._restaurant);
                 await this._renderedButton();
             });
-            // debuging
         } else {
             console.error("favoriteButton element not found");
         }
@@ -48,11 +49,51 @@ const favoriteButtonInitiator = {
                 await FavoriteIdb.deleteRestaurant(this._restaurant.id);
                 await this._renderedButton();
             });
-            // debuging
         } else {
             console.error("unFavoriteButton element not found");
         }
     },
 };
 
-export default favoriteButtonInitiator;
+const PostReviewOfRestaurant = async () => {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const nameOfReviewer = document.querySelector(".name");
+    const reviewOfReviewer = document.querySelector(".review");
+    const reviewContainer = document.querySelector(".restaurant-detail__reviews");
+
+    const dataInput = {
+        id: url.id,
+        name: nameOfReviewer.value,
+        review: reviewOfReviewer.value,
+    };
+
+    const date = new Date().toLocaleDateString("id-ID", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+
+    const userReview = `
+        <div class="review-card">
+            <header class="review-card__header">
+                <div class="review-card__info">
+                    <p class="review-card__name" >${dataInput.name}</p>
+                    <p class="review-card__date">${date}</p>
+                </div>
+            </header>
+            <p class="review-card__content">${dataInput.review}</p>
+        </div>
+    `;
+
+    const response = await rendererData.PostReviewOfRestaurant(dataInput);
+
+    if (response.error) {
+        console.error("Failed to post review:", response.message);
+    } else {
+        reviewContainer.innerHTML += userReview;
+        nameOfReviewer.value = "";
+        reviewOfReviewer.value = "";
+    }
+};
+
+export { favoriteButtonInitiator, PostReviewOfRestaurant };

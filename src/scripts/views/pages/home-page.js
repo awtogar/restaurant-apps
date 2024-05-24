@@ -1,4 +1,4 @@
-import rendererData from "../../helper/resto-render";
+import rendererData from "../../helper/data-render";
 import { createItemListTemplate } from "../pages-templates/templates-creator";
 
 const HomePage = {

@@ -14,7 +14,7 @@ class rendererData {
     }
 
 
-    static async postReview(data) {
+    static async PostReviewOfRestaurant(data) {
         const options = {
             method: "POST",
             headers: {

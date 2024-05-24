@@ -1,39 +1,84 @@
-/* styles.css */
+/* Kode CSS yang telah diperbarui */
 
-/* Favorite Button Container styling */
-#favoriteButtonContainer {
+/* Untuk desktop (min-width: 1200px) */
+@media (min-width: 1200px) {
+    .detail-header__info {
+        display: flex;
+    }
+
+    .restaurant-detail__image {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .restaurant-detail__header {
+        display: flex;
+        position: relative;
+    }
+
+    .restaurant-detail__container {
+        margin: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+    }
+}
+
+/* Untuk tablet (min-width: 768px) */
+@media (min-width: 768px) {
+    .detail-header__info {
+        display: flex;
+    }
+
+    .restaurant-detail__header {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .restaurant-detail__info {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .restaurant-detail__image {
+        width: 50%;
+        height: auto;
+    }
+}
+
+/* Untuk seluler (mobile first) */
+
+.detail-header__info{
+    justify-content: space-between;
     display: flex;
-    justify-content: flex-end;
-    padding: 10px;
+    position: absolute;
+    align-items: center;
+    top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 100%;
 }
 
-#favoriteButtonContainer button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
+.detail-header__info .restaurant-detail__rating h1 {
+    font-size: 1em;
+    color: var(--color_1);
 }
 
-#favoriteButtonContainer button i {
-    font-size: 2em;
-    color: #FF6347; /* Warna merah */
-}
-
-/* Restaurant detail styling */
-.restaurant-detail__container {
-    margin: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 20px;
-}
-
-.restaurant-detail__header {
-    position: relative;
+.restaurant-detail__city {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .restaurant-detail__rating {
@@ -42,24 +87,37 @@
     right: 10px;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 1.2em;
 }
 
 .restaurant-detail__rating h1 {
+    color: #ffffff;
     margin: 0;
     margin-right: 5px;
 }
 
 .restaurant-detail__rating i {
-    color: #FFD700;
+    color: #ffffff;
+}
+
+.restaurant-detail__city h1 {
+    color: #ffffff;
+    margin: 0;
+    font-weight: 300;
+    margin-right: 5px;
+}
+
+.restaurant-detail__city i {
+    color: var(--color_1);
+    font-size: 1.2em;
 }
 
 .restaurant-detail__image {
     width: 100%;
-    height: 200px; /* Ubah tinggi sesuai keinginan */
+    height: 200px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -75,7 +133,7 @@
     color: #333;
 }
 
-.restaurant-detail__city {
+.restaurant-detail__address {
     font-size: 1.2em;
     margin-bottom: 20px;
     color: #666;
@@ -172,7 +230,7 @@
     box-sizing: border-box;
 }
 
-button[type="submit"] {
+.submit-button {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -182,6 +240,41 @@ button[type="submit"] {
     transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
+.submit-button:hover {
     background-color: #45a049;
+}
+#favoriteButtonContainer {
+    position: fixed;
+    bottom: 120px;
+    right: 20px; /* Atur sesuai dengan kebutuhan */
+    z-index: 1000; /* Pastikan tombol berada di atas elemen lainnya */
+}
+
+.favorite-button, .unfavorite-button {
+    background-color: #ffffff; /* Sesuaikan dengan desain kamu */
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Transisi halus untuk perubahan warna dan transformasi */
+}
+
+.favorite-button i, .unfavorite-button i {
+    font-size: 2em;
+}
+
+.favorite-button i {
+    color: #FF6347; /* Warna merah */
+}
+
+.unfavorite-button i {
+    color: #FF6347; /* Warna merah */
+}
+
+.favorite-button:hover, .unfavorite-button:hover {
+    background-color: #f0f0f0; /* Warna latar saat hover */
+    transform: scale(1.1); /* Efek zoom saat hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi halus untuk perubahan warna latar dan transformasi saat hover */
 }
