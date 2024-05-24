@@ -9,6 +9,7 @@ class App {
         this._content = content;
 
         this._initialAppShell();
+        this._initScrollEvent();
     }
 
     _initialAppShell() {
@@ -21,11 +22,33 @@ class App {
             body: document.body
         });
     }
+
     async renderPage() {
         const url = UrlParser.parseActiveUrlWithCombiner();
         const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();
+    }
+
+    _initScrollEvent() {
+        const navBar = document.querySelector('.nav');
+        const menuIcon = document.querySelector('.ri-menu-4-line');
+        const logo = document.querySelector('.logo');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.scrollY;
+            if (scrollTop > lastScrollTop) {
+                navBar.style.top = '-100px';
+                logo.style.fill = 'var(--color_1)';
+                menuIcon.style.color = 'var(--color_1)';
+            } else {
+                navBar.style.top = '0px';
+                logo.style.fill = 'var(--color_2)';
+                menuIcon.style.color = 'var(--color_2)';
+            }
+            lastScrollTop = scrollTop;
+        });
     }
 }
 
