@@ -25,6 +25,7 @@ const HomePage = {
   async afterRender() {
     const listRestaurant = await rendererData.getRestaurants();
     const restaurantContainer = document.getElementById("restaurantList");
+
     restaurantContainer.innerHTML = "";
 
     listRestaurant.forEach((restaurant) => {

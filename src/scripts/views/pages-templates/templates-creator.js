@@ -72,7 +72,7 @@ const createDetailTemplate = (restaurant) => `
 `;
 
 const createButtonUnFavoritedRestaurantTemplate = () => `
-    <button id="unfavoriteButton" aria-label="unlike this restaurant">
+    <button id="unFavoriteButton" aria-label="unlike this restaurant">
         <i class="ri-heart-2-fill"></i>
     </button>
 `;

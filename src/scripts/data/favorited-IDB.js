@@ -1,4 +1,3 @@
-// favorite-idb.js
 import { openDB } from 'idb';
 import CONFIG from '../globals/config';
 
@@ -18,8 +17,7 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
     },
 });
 
-
-const favoritedDB = {
+const FavoriteIdb = {
     async getRestaurant(id) {
         return (await dbPromise).get(OBJECT_STORE_NAME, id);
     },
@@ -37,4 +35,4 @@ const favoritedDB = {
     },
 };
 
-export default favoritedDB;
+export default FavoriteIdb;

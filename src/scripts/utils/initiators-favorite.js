@@ -29,10 +29,11 @@ const favoriteButtonInitiator = {
 
         const favoriteButton = document.getElementById("favoriteButton");
         if (favoriteButton) {
-            favoriteButton.addEventListener('click', async () => {
+            favoriteButton.addEventListener("click", async () => {
                 await FavoriteIdb.putRestaurant(this._restaurant);
                 await this._renderedButton();
             });
+            // debuging
         } else {
             console.error("favoriteButton element not found");
         }
@@ -41,14 +42,15 @@ const favoriteButtonInitiator = {
     _renderNonFavoritedButton() {
         this._favoriteButtonContainer.innerHTML = createButtonUnFavoritedRestaurantTemplate();
 
-        const likedButton = document.getElementById("favoriteButton");
-        if (likedButton) {
-            likedButton.addEventListener("click", async () => {
+        const unFavoriteButton = document.getElementById("unFavoriteButton");
+        if (unFavoriteButton) {
+            unFavoriteButton.addEventListener("click", async () => {
                 await FavoriteIdb.deleteRestaurant(this._restaurant.id);
                 await this._renderedButton();
             });
+            // debuging
         } else {
-            console.error("likedButton element not found");
+            console.error("unFavoriteButton element not found");
         }
     },
 };
