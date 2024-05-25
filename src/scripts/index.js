@@ -5,6 +5,7 @@ import '../styles/desktop.css';
 import '../styles/templates.css';
 import 'remixicon/fonts/remixicon.css';
 import App from './views/app';
+import swRegister from './utils/sw-register.js.';
 
 const navBarMenu = document.querySelector('#nav-menu');
 const navBarMenuLinks = document.querySelector('#nav-links-menu');
@@ -22,6 +23,8 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
+  
 });
 
 // FIXME: TAMBAHIN RESPONSIVE UNTUK DETAIL DAN FAVORITE PAGE

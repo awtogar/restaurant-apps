@@ -39,11 +39,11 @@ const createDetailTemplate = (restaurant) => `
                     <p class="restaurant-detail__description">${restaurant.description}</p>
                     <h2 class="restaurant-detail__menu-title">Foods</h2>
                     <ul class="restaurant-detail__menu">
-                        ${restaurant.menus.foods.map(food => `<li>${food.name}</li>`).join('')}
+                        ${restaurant.menus.foods.map(food => `<li><i class="ri-bowl-fill"></i> ${food.name}</li>`).join('')}
                     </ul>
                     <h2 class="restaurant-detail__menu-title">Drinks</h2>
                     <ul class="restaurant-detail__menu">
-                        ${restaurant.menus.drinks.map(drink => `<li>${drink.name}</li>`).join('')}
+                        ${restaurant.menus.drinks.map(drink => `<li><i class="ri-drinks-fill"></i> ${drink.name}</li>`).join('')}
                     </ul>
                     <section id="formSection" class="restaurant-detail__form-section">
                         <form id="reviewInputForm" class="restaurant-detail__review-input">
