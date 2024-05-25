@@ -359,13 +359,3 @@ footer {
 }
 
 
-/* TEMPLATES-CREATOR */
-
-.restaurant-detail__card{
-  display: flex;
-  flex-direction: column;
-}
-
-.restaurant-detail__header{
-  
-}
