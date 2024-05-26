@@ -6,11 +6,16 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-      // tambahkan juga direktori tempat file manifest berada
-      watch: true,
-    },
+    static: [
+      {
+        directory: path.join(__dirname, 'dist'),
+        watch: true,
+      },
+      {
+        directory: path.join(__dirname, 'src', 'public'),
+        watch: true,
+      },
+    ],
     open: true,
     compress: true,
     client: {

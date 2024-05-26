@@ -1,4 +1,3 @@
-// index.js
 import 'regenerator-runtime';
 import '../styles/main.css';
 import '../styles/tablet.css';

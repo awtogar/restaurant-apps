@@ -259,9 +259,6 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Media Queries */
-
-/* Tablet (min-width: 768px) */
 @media (min-width: 768px) {
     .detail-header__info {
         display: flex;

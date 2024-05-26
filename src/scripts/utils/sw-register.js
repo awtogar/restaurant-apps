@@ -1,9 +1,7 @@
-/* eslint-disable no-console */
 import { Workbox } from "workbox-window";
 
 const swRegister = async () => {
     if (!("serviceWorker" in navigator)) {
-        // eslint-disable-next-line no-console
         console.log("Service Worker not supported in the browser");
         return;
     }

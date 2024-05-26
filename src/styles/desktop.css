@@ -112,7 +112,6 @@
 }
 }
 
-/* Laptop dan desktop lebih besar */
 @media (min-width: 1200px) {
   .hero-content {
     width: 1000px;
