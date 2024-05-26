@@ -1,3 +1,4 @@
+// index.js
 import 'regenerator-runtime';
 import '../styles/main.css';
 import '../styles/tablet.css';
@@ -5,7 +6,7 @@ import '../styles/desktop.css';
 import '../styles/templates.css';
 import 'remixicon/fonts/remixicon.css';
 import App from './views/app';
-import swRegister from './utils/sw-register.js.';
+import swRegister from './utils/sw-register.js';
 
 const navBarMenu = document.querySelector('#nav-menu');
 const navBarMenuLinks = document.querySelector('#nav-links-menu');
@@ -24,8 +25,4 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
   app.renderPage();
   swRegister();
-  
 });
-
-// FIXME: TAMBAHIN RESPONSIVE UNTUK DETAIL DAN FAVORITE PAGE
-// TODO: KALO ITU SEMUA UDAH PROJECT INI AKAN DONE DAN TINGGAL WEB MANIFEST

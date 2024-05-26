@@ -1,18 +1,31 @@
-self.addEventListener('install', (event) => {
-    console.log('Installing Service Worker ...');
+// // sw.js
+// import 'regenerator-runtime';
+// import CacheHelper from './utils/cache-helper';
 
-    // TODO: Caching App Shell Resource
-});
+// // Daftar asset yang akan di-caching
+// const assetsToCache = [
+//     '/',
+//     '/index.html',
+//     '/app.bundle.js',
+//     '/sw.bundle.js',
+//     '/app.webmanifest',
+//     '/images/icons/icon-72x72.png',
+//     '/images/icons/icon-96x96.png',
+//     '/images/icons/icon-128x128.png',
+//     '/images/icons/icon-144x144.png',
+//     '/images/icons/icon-192x192.png',
+//     '/images/icons/icon-384x384.png',
+//     '/images/icons/icon-512x512.png',
+// ];
 
-self.addEventListener('activate', (event) => {
-    console.log('Activating Service Worker ...');
+// self.addEventListener('install', (event) => {
+//     event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]));
+// });
 
-    // TODO: Delete old caches
-});
+// self.addEventListener('activate', (event) => {
+//     event.waitUntil(CacheHelper.deleteOldCache());
+// });
 
-self.addEventListener('fetch', (event) => {
-    console.log(event.request);
-
-    event.respondWith(fetch(event.request));
-    // TODO: Add/get fetch request to/from caches
-});
+// self.addEventListener('fetch', (event) => {
+//     event.respondWith(CacheHelper.revalidateCache(event.request));
+// });
