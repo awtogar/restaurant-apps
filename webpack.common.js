@@ -45,7 +45,7 @@ module.exports = {
           urlPattern: ({ url }) => url.href.startsWith("https://restaurant-api.dicoding.dev"),
           handler: "StaleWhileRevalidate",
           options: {
-            cacheName: "rest-cache",
+            cacheName: "happs-cache",
           },
         },
         {
