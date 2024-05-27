@@ -8,8 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "lint": "eslint ."
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "awtogarr <d2024y042@dicoding.org>",
