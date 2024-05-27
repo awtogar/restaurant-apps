@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
-
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
