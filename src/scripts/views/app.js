@@ -28,6 +28,12 @@ class App {
         const page = routes[url];
         this._content.innerHTML = await page.render();
         await page.afterRender();
+        //skip to content
+        const skipLinkElem = document.querySelector('.skipToContent');
+        skipLinkElem.addEventListener('click', (event) => {
+            event.preventDefault();
+            document.querySelector('#mainContent').focus();
+        });
     }
 
     _initScrollEvent() {
