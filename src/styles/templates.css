@@ -4,6 +4,12 @@
     padding-right: 4px;
 }
 
+.form-group input,
+.submit-button {
+    min-width: 44px;
+    min-height: 44px;
+}
+
 .detail-header__info {
     justify-content: space-between;
     display: flex;
