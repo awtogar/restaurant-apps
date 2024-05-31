@@ -27,8 +27,16 @@ const FavoriteIdb = {
     },
 
     async putRestaurant(restaurant) {
-        return (await dbPromise).put(OBJECT_STORE_NAME, JSON.parse(JSON.stringify(restaurant)));
+        // eslint-disable-next-line no-prototype-builtins
+        if (!restaurant.hasOwnProperty('id')) {
+            return;
+        }
+        return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
     },
+    
+    // async putRestaurant(restaurant) {
+    //     return (await dbPromise).put(OBJECT_STORE_NAME, JSON.parse(JSON.stringify(restaurant)));
+    // },
 
     async deleteRestaurant(id) {
         return (await dbPromise).delete(OBJECT_STORE_NAME, id);
