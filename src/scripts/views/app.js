@@ -24,16 +24,20 @@ class App {
     }
 
     async renderPage() {
-        const url = UrlParser.parseActiveUrlWithCombiner();
-        const page = routes[url];
-        this._content.innerHTML = await page.render();
-        await page.afterRender();
-        //skip to content
-        const skipLinkElem = document.querySelector('.skipToContent');
-        skipLinkElem.addEventListener('click', (event) => {
-            event.preventDefault();
-            document.querySelector('#mainContent').focus();
-        });
+        try {
+            const url = UrlParser.parseActiveUrlWithCombiner();
+            const page = routes[url];
+            this._content.innerHTML = await page.render();
+            await page.afterRender();
+            //skip to content
+            const skipLinkElem = document.querySelector('.skipToContent');
+            skipLinkElem.addEventListener('click', (event) => {
+                event.preventDefault();
+                document.querySelector('#mainContent').focus();
+            });
+        } catch (error) {
+            console.error("Error rendering page:", error);
+        }
     }
 
     _initScrollEvent() {

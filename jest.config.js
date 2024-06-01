@@ -10,6 +10,9 @@ const config = {
   ],
 
   setupFiles: ['fake-indexeddb/auto'],
+  
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',

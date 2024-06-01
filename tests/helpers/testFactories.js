@@ -1,14 +1,11 @@
-import { favoriteButtonInitiator } from "../../src/scripts/utils/initiators-helper";
-import FavoriteIdb from "../../src/scripts/data/favorited-IDB";
+import { favoriteButtonPresenter } from "../../src/scripts/utils/initiators-presenter";
 
-const createFavoriteButtonPresenter = async (restaurant) => {
-    await favoriteButtonInitiator.init({
-        favoriteButtonContainer: document.querySelector("#favoriteButtonContainer"),
-        FavoriteIdb,
-        data: {
-            restaurant,
-        },
+
+const createFavoriteButtonPresenterWithRestaurant = async (restaurant) => {
+    await favoriteButtonPresenter.init({
+        favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+        restaurant,
     });
 };
 
-export { createFavoriteButtonPresenter };
+export { createFavoriteButtonPresenterWithRestaurant };

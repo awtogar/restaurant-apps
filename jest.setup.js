@@ -1,0 +1,3 @@
+beforeAll(() => {
+    global.console.log = () => { };
+});

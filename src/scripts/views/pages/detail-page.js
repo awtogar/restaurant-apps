@@ -1,7 +1,7 @@
 import rendererData from '../../helper/data-render';
 import UrlParser from '../../routes/url-parser';
 import { createDetailTemplate } from '../pages-templates/templates-creator';
-import { favoriteButtonInitiator, PostReviewOfRestaurant } from '../../utils/initiators-helper';
+import { favoriteButtonPresenter, PostReviewOfRestaurant } from '../../utils/initiators-presenter';
 
 const DetailPage = {
     async render() {
@@ -14,34 +14,38 @@ const DetailPage = {
     },
 
     async afterRender() {
-        const url = UrlParser.parseActiveUrlWithoutCombiner();
-        const restaurant = await rendererData.detailRestaurant(url.id);
-        console.log(restaurant);
+        try {
+            const url = UrlParser.parseActiveUrlWithoutCombiner();
+            const restaurant = await rendererData.detailRestaurant(url.id);
 
-        const restaurantContainer = document.querySelector('#detailsView');
-        restaurantContainer.innerHTML = createDetailTemplate(restaurant);
-        const favoriteButtonContainer = document.querySelector("#favoriteButtonContainer");
-        const submitUserReview = document.getElementById("SubmitYourReview");
 
-        submitUserReview.addEventListener("click", (event) => {
-            event.preventDefault();
-            PostReviewOfRestaurant();
-        });
+            const restaurantContainer = document.querySelector('#detailsView');
+            restaurantContainer.innerHTML = createDetailTemplate(restaurant);
+            const favoriteButtonContainer = document.querySelector("#favoriteButtonContainer");
+            const submitUserReview = document.getElementById("SubmitYourReview");
 
-        if (favoriteButtonContainer) {
-            await favoriteButtonInitiator.init({
-                favoriteButtonContainer,
-                restaurant: {
-                    id: restaurant.id,
-                    name: restaurant.name,
-                    description: restaurant.description,
-                    pictureId: restaurant.pictureId,
-                    city: restaurant.city,
-                    rating: restaurant.rating,
-                },
+            submitUserReview.addEventListener("click", (event) => {
+                event.preventDefault();
+                PostReviewOfRestaurant();
             });
-        } else {
-            console.error("favoriteButtonContainer element not found");
+
+            if (favoriteButtonContainer) {
+                await favoriteButtonPresenter.init({
+                    favoriteButtonContainer,
+                    restaurant: {
+                        id: restaurant.id,
+                        name: restaurant.name,
+                        description: restaurant.description,
+                        pictureId: restaurant.pictureId,
+                        city: restaurant.city,
+                        rating: restaurant.rating,
+                    },
+                });
+            } else {
+                console.error("favoriteButtonContainer element not found");
+            }
+        } catch (error) {
+            console.error("Error rendering detail page:", error);
         }
     },
 };

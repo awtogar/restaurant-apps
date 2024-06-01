@@ -1,9 +1,10 @@
 import FavoriteIdb from '../data/favorited-IDB';
 import { createButtonUnFavoritedRestaurantTemplate, createButtonFavoritedRestaurantTemplate } from '../views/pages-templates/templates-creator';
+
 import rendererData from '../helper/data-render';
 import UrlParser from '../routes/url-parser';
 
-const favoriteButtonInitiator = {
+const favoriteButtonPresenter = {
     async init({ favoriteButtonContainer, restaurant }) {
         this._favoriteButtonContainer = favoriteButtonContainer;
         this._restaurant = restaurant;
@@ -96,4 +97,4 @@ const PostReviewOfRestaurant = async () => {
     }
 };
 
-export { favoriteButtonInitiator, PostReviewOfRestaurant };
+export { favoriteButtonPresenter, PostReviewOfRestaurant };
