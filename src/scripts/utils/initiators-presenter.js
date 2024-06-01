@@ -1,13 +1,14 @@
-import FavoriteIdb from '../data/favorited-IDB';
 import { createButtonUnFavoritedRestaurantTemplate, createButtonFavoritedRestaurantTemplate } from '../views/pages-templates/templates-creator';
 
 import rendererData from '../helper/data-render';
 import UrlParser from '../routes/url-parser';
 
+// Favorite Button Presenter
 const favoriteButtonPresenter = {
-    async init({ favoriteButtonContainer, restaurant }) {
+    async init({ favoriteButtonContainer, favoriteRestaurants ,restaurant }) {
         this._favoriteButtonContainer = favoriteButtonContainer;
         this._restaurant = restaurant;
+        this._favoriteRestaurants = favoriteRestaurants
 
         await this._renderedButton();
     },
@@ -23,7 +24,7 @@ const favoriteButtonPresenter = {
     },
 
     async _isRestaurantAvailable(id) {
-        const restaurant = await FavoriteIdb.getRestaurant(id);
+        const restaurant = await this._favoriteRestaurants.getRestaurant(id);
         return !!restaurant;
     },
 
@@ -33,7 +34,7 @@ const favoriteButtonPresenter = {
         const favoriteButton = document.getElementById("favoriteButton");
         if (favoriteButton) {
             favoriteButton.addEventListener("click", async () => {
-                await FavoriteIdb.putRestaurant(this._restaurant);
+                await this._favoriteRestaurants.putRestaurant(this._restaurant);
                 await this._renderedButton();
             });
         } else {
@@ -47,7 +48,7 @@ const favoriteButtonPresenter = {
         const unFavoriteButton = document.getElementById("unFavoriteButton");
         if (unFavoriteButton) {
             unFavoriteButton.addEventListener("click", async () => {
-                await FavoriteIdb.deleteRestaurant(this._restaurant.id);
+                await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
                 await this._renderedButton();
             });
         } else {
@@ -56,6 +57,7 @@ const favoriteButtonPresenter = {
     },
 };
 
+// Post Review Restaurant
 const PostReviewOfRestaurant = async () => {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const nameOfReviewer = document.querySelector(".name");

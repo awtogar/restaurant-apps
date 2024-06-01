@@ -38,7 +38,7 @@ describe('Liking A Movie', () => {
 
         await FavoriteIdb.putRestaurant({ id: 1 });
         document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
-        expect(await FavoriteIdb.getAllRestaurant()).toEqual([{ id: 1 }]);
+        expect(await FavoriteIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
 
         await FavoriteIdb.deleteRestaurant(1);
     });
@@ -47,6 +47,6 @@ describe('Liking A Movie', () => {
         await TestFactories.createFavoriteButtonPresenterWithRestaurant({});
 
         document.querySelector('#favoriteButton').dispatchEvent(new Event('click'));
-        expect(await FavoriteIdb.getAllRestaurant()).toEqual([]);
+        expect(await FavoriteIdb.getAllRestaurants()).toEqual([]);
     });
 });

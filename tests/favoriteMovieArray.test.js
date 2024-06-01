@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { itActsAsFavoriteRestoModel } from "./contracts/favoriteRestaurantContract";
 let favoriteRestaurant = [];
 
@@ -10,7 +11,7 @@ const FavoriteRestaurantArray = {
         return favoriteRestaurant.find((restaurant) => restaurant.id == id);
     },
 
-    getAllRestaurant() {
+    getAllRestaurants() {
         return favoriteRestaurant;
     },
 

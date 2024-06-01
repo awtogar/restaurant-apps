@@ -29,7 +29,7 @@ const FavoriteIdb = {
     },
 
 
-    async getAllRestaurant() {
+    async getAllRestaurants() {
         return (await dbPromise).getAll(OBJECT_STORE_NAME);
     },
 

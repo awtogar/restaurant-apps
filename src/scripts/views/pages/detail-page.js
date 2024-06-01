@@ -2,6 +2,7 @@ import rendererData from '../../helper/data-render';
 import UrlParser from '../../routes/url-parser';
 import { createDetailTemplate } from '../pages-templates/templates-creator';
 import { favoriteButtonPresenter, PostReviewOfRestaurant } from '../../utils/initiators-presenter';
+import FavoriteIdb from '../../data/favorited-IDB';
 
 const DetailPage = {
     async render() {
@@ -14,39 +15,31 @@ const DetailPage = {
     },
 
     async afterRender() {
-        try {
-            const url = UrlParser.parseActiveUrlWithoutCombiner();
-            const restaurant = await rendererData.detailRestaurant(url.id);
+        const url = UrlParser.parseActiveUrlWithoutCombiner();
+        const restaurant = await rendererData.detailRestaurant(url.id);
 
+        const restaurantContainer = document.querySelector('#detailsView');
+        restaurantContainer.innerHTML = createDetailTemplate(restaurant);
 
-            const restaurantContainer = document.querySelector('#detailsView');
-            restaurantContainer.innerHTML = createDetailTemplate(restaurant);
-            const favoriteButtonContainer = document.querySelector("#favoriteButtonContainer");
-            const submitUserReview = document.getElementById("SubmitYourReview");
+        const submitUserReview = document.getElementById("SubmitYourReview");
 
-            submitUserReview.addEventListener("click", (event) => {
-                event.preventDefault();
-                PostReviewOfRestaurant();
-            });
+        submitUserReview.addEventListener("click", (event) => {
+            event.preventDefault();
+            PostReviewOfRestaurant();
+        });
 
-            if (favoriteButtonContainer) {
-                await favoriteButtonPresenter.init({
-                    favoriteButtonContainer,
-                    restaurant: {
-                        id: restaurant.id,
-                        name: restaurant.name,
-                        description: restaurant.description,
-                        pictureId: restaurant.pictureId,
-                        city: restaurant.city,
-                        rating: restaurant.rating,
-                    },
-                });
-            } else {
-                console.error("favoriteButtonContainer element not found");
-            }
-        } catch (error) {
-            console.error("Error rendering detail page:", error);
-        }
+        await favoriteButtonPresenter.init({
+            favoriteButtonContainer: document.querySelector("#favoriteButtonContainer"),
+            favoriteRestaurants: FavoriteIdb,
+            restaurant: {
+                id: restaurant.id,
+                name: restaurant.name,
+                description: restaurant.description,
+                pictureId: restaurant.pictureId,
+                city: restaurant.city,
+                rating: restaurant.rating,
+            },
+        });
     },
 };
 

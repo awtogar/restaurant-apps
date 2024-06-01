@@ -10,7 +10,7 @@ const FavoritePage = {
     },
 
     async afterRender() {
-        const favoritedItems = await FavoriteIdb.getAllRestaurant();
+        const favoritedItems = await FavoriteIdb.getAllRestaurants();
         const favoritedContainer = document.getElementById('favoritesView');
 
         if (favoritedItems.length === 0) {
