@@ -18,6 +18,7 @@ module.exports = merge(common, {
     ],
     open: true,
     compress: true,
+    port: 9000,
     // https: true, // Enable HTTPS
     client: {
       overlay: {

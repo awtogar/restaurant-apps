@@ -14,13 +14,21 @@ const FavoritePage = {
         const favoritedContainer = document.getElementById('favoritesView');
 
         if (favoritedItems.length === 0) {
+            const emptyFavoritedRestaurant = document.createElement('div');
+            emptyFavoritedRestaurant.setAttribute('id', 'favoriteItemNotFound');
+            emptyFavoritedRestaurant.setAttribute('class', 'favorite-item__not__found');
+
             const unAvailableFavorited = document.createElement('h2');
-            unAvailableFavorited.textContent = "There's no favorited yet!";
-            favoritedContainer.appendChild(unAvailableFavorited);
+            unAvailableFavorited.textContent = "There is no favorited restaurant!";
+
+            emptyFavoritedRestaurant.appendChild(unAvailableFavorited);
+            favoritedContainer.appendChild(emptyFavoritedRestaurant);
         }
+
         favoritedItems.forEach((restaurant) => {
             favoritedContainer.innerHTML += createItemListTemplate(restaurant);
         });
+
     },
 };
 
