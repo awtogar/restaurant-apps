@@ -8,6 +8,7 @@ Before(({ I }) => {
 
 Scenario('Posting Restaurant Review', async ({ I }) => {
     I.seeElement('#restaurantList');
+    pause();
     I.seeElement('.card-item a');
     I.click(locate('.card-item a').first());
     I.seeElement('#formSection');

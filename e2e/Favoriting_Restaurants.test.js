@@ -18,7 +18,7 @@ Scenario('favoriting one restaurant', async ({ I }) => {
     I.seeElement('.favorite-item__not__found');
     I.see('There is no favorited restaurant!');
 
-    // http://localhost:9000/#/home
+    // http://localhost:8080/#/home
     I.amOnPage('/#/home');
     I.seeElement('.card-item a');
     const firstRestaurant = locate('.card-item h2').first();
@@ -27,12 +27,12 @@ Scenario('favoriting one restaurant', async ({ I }) => {
 
     I.waitForURL();
 
-    // http://localhost:9000/#/detail/id
+    // http://localhost:8080/#/detail/id
     I.waitForElement('#favoriteButton', 3);
     I.seeElement('#favoriteButton');
     I.click('#favoriteButton');
 
-    // http://localhost:9000/#/favorite
+    // http://localhost:8080/#/favorite
     I.waitForURL();
     I.amOnPage('/#/favorite');
     I.waitForElement('.card-item', 3);
@@ -45,7 +45,7 @@ Scenario('favoriting one restaurant', async ({ I }) => {
 
 // FIXME:
 Scenario('unfavoriitng one restaurant', async ({ I }) => {
-    // http://localhost:9000/#/home
+    // http://localhost:8080/#/home
     I.amOnPage('/#/home');
     I.seeElement('.card-item a');
     const firstFavoritedRestaurant = locate('.card-item h2').first();
@@ -53,12 +53,12 @@ Scenario('unfavoriitng one restaurant', async ({ I }) => {
     I.click(locate('.card-item a').first())
     I.waitForURL();
 
-    // http://localhost:9000/#/detail/id
+    // http://localhost:8080/#/detail/id
     I.waitForElement('#favoriteButton', 3);
     I.seeElement('#favoriteButton');
     I.click('#favoriteButton');
 
-    // http://localhost:9000/#/favorite
+    // http://localhost:8080/#/favorite
     I.waitForURL();
     I.amOnPage('/#/favorite');
     I.waitForElement('.card-item', 3);
@@ -67,7 +67,7 @@ Scenario('unfavoriitng one restaurant', async ({ I }) => {
     assert.strictEqual(firstFavoritedRestaurantTitle, unfavRestaurantTitle);
     I.click(locate('.card-item a').first())
 
-    // http://localhost:9000/#/detail/id
+    // http://localhost:8080/#/detail/id
     I.waitForURL();
     I.waitForElement('#unFavoriteButton', 3);
     I.seeElement('#unFavoriteButton');
