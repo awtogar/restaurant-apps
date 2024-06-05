@@ -143,7 +143,7 @@ html {
 }
 
 .hero-content{
-  background-image: radial-gradient(circle, rgba(255,255,255,0.004885993485342022) 1%, rgba(0,0,0,0.7866449511400652) 100%), url("/src/public/images/heros/hero-image_3.jpg");
+  background-image: radial-gradient(circle, rgba(255,255,255,0.004885993485342022) 1%, rgba(0,0,0,0.7866449511400652) 100%), url('../images/heros/hero-image_3-1000.jpg');
   background-size: cover;
   background-position: center;
   color: white;

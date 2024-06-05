@@ -8,8 +8,7 @@ const HomePage = {
       <figure class="hero-content">
         <h1 id="hero-title">Welcome <span>Happs!</span></h1>
         <p>We Made Not Born</p>
-        <a href="#restaurantSection" class="cta-button" role="button" aria-label="find your culinary experience">Find Yours! <i class="ri-map-pin-2-fill">
-        </i></a>
+        <a href="#restaurantSection" class="cta-button" role="button" aria-label="find your culinary experience">Find Yours! <i class="ri-map-pin-2-fill"></i></a>
       </figure>
     </section>
     <section class="list-header">
