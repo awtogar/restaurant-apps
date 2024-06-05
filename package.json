@@ -11,6 +11,8 @@
     "test:watch": "jest --watchAll",
     "e2e": "codeceptjs run --steps",
     "build-image": "node sharp.js"
+    "e2e": "codeceptjs run --steps",
+    "build-image": "node sharp.js"
   },
   "keywords": [],
   "author": "awtogarr <d2024y042@dicoding.org>",
@@ -48,6 +50,7 @@
     "workbox-webpack-plugin": "^7.1.0"
   },
   "dependencies": {
+    "sharp": "^0.33.4",
     "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0",
     "remixicon": "^4.2.0"
